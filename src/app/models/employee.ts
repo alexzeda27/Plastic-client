@@ -5,9 +5,12 @@ export class Employee{
         public name: string,
         public surnameP: string,
         public surnameM: string,
-        public email: string,
+        public username: string,
+        public password: string,
         public image: string,
+        public email: string,
         public position: string,
-        public department: string
+        public department: string,
+        public gettoken: any
     ){}
 }
