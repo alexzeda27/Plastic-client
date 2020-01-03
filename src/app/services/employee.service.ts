@@ -16,6 +16,7 @@ export class EmployeeService{
         this.url = GLOBAL.url;
     }
 
+    //Método para registrar empleados
     register(employee: Employee): Observable<any>{
         let params = JSON.stringify(employee);
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
@@ -23,6 +24,7 @@ export class EmployeeService{
         return this._http.post(this.url + 'registrar', params, {headers:headers});
     }
 
+    //Método para logear empleados
     singIn(employee: Employee, gettoken = null): Observable<any>{
         if(gettoken != null)
         {
@@ -35,6 +37,7 @@ export class EmployeeService{
         return this._http.post(this.url + 'login', params, {headers:headers});
     }
 
+    //Método para persistir sesión de usuario
     getIdentity()
     {
         let identity = JSON.parse(localStorage.getItem('identity'));
@@ -51,6 +54,7 @@ export class EmployeeService{
         return this.identity;
     }
 
+    //Método para generar el token de usuario
     getToken()
     {
         let token = localStorage.getItem('token');
@@ -65,5 +69,15 @@ export class EmployeeService{
         }
 
         return this.token;
+    }
+
+    //Método para actualizar empleados
+    updateEmployee(employee: Employee): Observable<any>
+    {
+        let params = JSON.stringify(employee);
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+        //TO DO Agregar token
+
+        return this._http.put(this.url + 'actualizar/' + employee.payroll, params, {headers: headers});
     }
 }

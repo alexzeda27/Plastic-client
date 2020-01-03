@@ -16,7 +16,7 @@
         </li>
 
         <li>
-          <a [routerLink]="['/registrar']" [routerLinkActive]="['active']">
+          <a [routerLink]="['/registrar-empleado']" [routerLinkActive]="['active']">
             <span class="glyphicon glyphicon-user"></span>
             Agregar empleados
           </a>
@@ -66,6 +66,7 @@
       <div class="nav navbar-nav navbar-right" *ngIf="identity">
         <li class="avatar">
           <!-- Cargar la imagen de usuario-->
+          <img src="{{ url + 'consultar-imagen/' + identity.image}}" *ngIf="identity && identity.image" class="img-fluid" alt="Imágen de {{identity.name}}"/>
         </li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown">
@@ -76,7 +77,7 @@
               <a href="#"><span class="glyphicon glyphicon-user"></span> Mi perfil</a>
             </li>
             <li>
-              <a href="#"><span class="glyphicon glyphicon-cog"></span> Actualizar mis datos</a>
+              <a [routerLink]="['/actualizar-empleado']"><span class="glyphicon glyphicon-cog"></span> Actualizar mis datos</a>
             </li>
             <li>
               <a class="pointer" (click)="logout()"><span class="glyphicon glyphicon-log-out"></span> Cerrar Sesión</a>
