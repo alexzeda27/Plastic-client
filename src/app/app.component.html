@@ -66,7 +66,8 @@
       <div class="nav navbar-nav navbar-right" *ngIf="identity">
         <li class="avatar">
           <!-- Cargar la imagen de usuario-->
-          <img src="{{ url + 'consultar-imagen/' + identity.image}}" *ngIf="identity && identity.image" class="img-fluid" alt="Imágen de {{identity.name}}"/>
+          <img src="{{ url + 'consultar-imagen/' + identity.image}}" *ngIf="identity.image" alt="Imágen de {{identity.name}}"/>
+          <img src="assets/default.png" *ngIf="!identity.image" alt="Imágen por default">
         </li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown">
@@ -74,7 +75,7 @@
           </a>
           <ul class="dropdown-menu">
             <li>
-              <a href="#"><span class="glyphicon glyphicon-user"></span> Mi perfil</a>
+              <a [routerLink]="['/perfil/:payroll']"><span class="glyphicon glyphicon-user"></span> Mi perfil</a>
             </li>
             <li>
               <a [routerLink]="['/actualizar-empleado']"><span class="glyphicon glyphicon-cog"></span> Actualizar mis datos</a>

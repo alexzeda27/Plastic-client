@@ -3,6 +3,25 @@
     <div class="jumbotron">
         <h1 class="h1-strong">{{title}}</h1>
         <p>¿Qué deseas hacer?</p>
+
+        <div class="menu">
+
+            <div class="recursos-humanos">
+                <h2>Recursos Humanos</h2>
+                <a [routerLink]="['/recursos-humanos']">
+                    <img src="assets/RH.png" alt="">
+                </a>
+            </div>
+
+            <div class="capacitacion">
+                <h2>Capacitación</h2>
+                <a [routerLink]="['/capacitacion']">
+                    <img src="assets/capacitacion.jpg" alt="">
+                </a>
+            </div>
+
+        </div>
+
     </div>
 
 </div>

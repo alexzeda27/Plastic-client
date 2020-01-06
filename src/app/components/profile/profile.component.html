@@ -1,0 +1,23 @@
+<div class="col-lg-5">
+    <h1 class="h1-strong">
+        {{title}}   
+    </h1>
+
+    <div id="data-profile" *ngIf="employee">
+        <div class="avatar pull-left">
+            <img src="{{url + 'consultar-imagen/' + employee.image}}" *ngIf="employee.image" alt="Foto de perfil de {{employee.name}}"/>
+            <img src="assets/default.png" *ngIf="!employee.image" alt="Foto de perfil por default"/>
+        </div>
+
+        <div class="user-name pull-left">
+            <p class="name">{{employee.name + ' ' + employee.surnameP + ' ' + employee.surnameM}}</p>
+            <p class="username">@{{employee.username}}</p>
+        </div>
+
+        <div class="work pull-left">
+            <p class="department">Departamento: <span>{{employee.department.departmentName}}</span></p>
+            <p class="position">Puesto: <span>{{employee.position.positionName}}</span></p>
+        </div>
+    
+    </div>
+</div>

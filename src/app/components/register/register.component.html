@@ -1,4 +1,4 @@
-<div class="col-lg-3 col-lg-offset-4" *ngIf="identity">
+<div class="col-lg-3 col-lg-offset-4">
     <h1 class="h1-strong">{{title}}</h1>
 
     <div class="alert alert-success" *ngIf="status == 'success'">
@@ -61,17 +61,7 @@
 
 
         <!-- TO DO Agregar campos de puesto y departamento -->
-        <p>
-            <label class="labels">Puesto</label>
-            <select name="position" #position="ngModel" [(ngModel)]="employee.position" class="form-control" id="positions" required>
-                <span *ngIf="!position.valid && position.touched">
-                    <option>OobjectId - Puesto 1</option>
-                    <option>OobjectId - Puesto 2</option>
-                    <option>OobjectId - Puesto 3</option>
-                    <option>OobjectId - Puesto 4</option>
-                </span>
-            </select>
-        </p>
+
 
         <input type="submit" value="{{title}}" class="btn btn-success" [disabled]="!registerForm.form.valid"/>
 

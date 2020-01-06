@@ -49,7 +49,7 @@ export class RegisterComponent implements OnInit
             response => {
                 if(response.employee && response.employee._id)
                 {
-                    console.log(response.employee);
+                    console.log(response.employee.toLowerCase());
                     this.status = 'success';
                     form.reset();
                 }

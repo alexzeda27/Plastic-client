@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { GLOBAL } from './global';
 import { Employee } from '../models/employee';
+import { map } from "rxjs/operators";
 
 @Injectable()
 export class EmployeeService{
@@ -79,5 +80,21 @@ export class EmployeeService{
         //TO DO Agregar token
 
         return this._http.put(this.url + 'actualizar/' + employee.payroll, params, {headers: headers});
+    }
+
+    //Enlistar empleados
+    getEmployees(page = null): Observable<any>
+    {
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+        return this._http.get(this.url + 'consultar-paginados/' + page, {headers: headers});
+    }
+
+    //Cargar lista de empleado individual
+    getEmploye(payroll): Observable<any>
+    {
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+        return this._http.get(this.url + 'consultar/' + payroll, {headers: headers});
     }
 }
