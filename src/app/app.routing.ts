@@ -7,6 +7,10 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { EmployeeEditComponent } from './components/employee-edit/employee-edit.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { HumanResourcesComponent } from './components/human-resources/human-resources.component';
+import { RegisterDepartmentComponent } from './components/register-department/register-department.component';
+import { ProductionComponent } from './components/production/production.component';
+import { DepartmentEditComponent } from './components/department-edit/department-edit.component';
 
 const appRoutes: Routes = [
     {path: '', component: HomeComponent},
@@ -14,7 +18,11 @@ const appRoutes: Routes = [
     {path: 'login', component: LoginComponent},
     {path: 'registrar-empleado', component: RegisterComponent},
     {path: 'actualizar-empleado', component: EmployeeEditComponent},
-    {path: 'perfil/:payroll', component: ProfileComponent}
+    {path: 'perfil/:payroll', component: ProfileComponent},
+    {path: 'recursos-humanos', component: HumanResourcesComponent},
+    {path: 'registrar-departamento', component: RegisterDepartmentComponent},
+    {path: 'produccion', component: ProductionComponent},
+    {path: 'actualizar-departamento', component: DepartmentEditComponent}
 ];
 
 export const appRoutingProviders: any[] = [];

@@ -37,7 +37,7 @@
         <span *ngIf="!username.value && username.touched">El nombre de usuario es obligatorio</span>
         </p>
 
-        <div *ngIf="employee.image">
+        <div *ngIf="employee.image" class="imageUpdate">
             <img src="{{ url + 'consultar-imagen/' + employee.image }}" alt="Foto de {{employee.name}}"/>
         </div>
 

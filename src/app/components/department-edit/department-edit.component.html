@@ -1,0 +1,21 @@
+<div class="col-lg-4">
+    <h1 class="h1-strong">
+        {{title}}
+    </h1>
+
+    <div class="alert alert-success" *ngIf="status == 'success'">Se han actualizado los datos correctamente.</div>
+
+    <div class="alert alert-danger" *ngIf="status == 'error'">No se han podido actualizar los datos de departamento</div>
+
+    <form #departmentEditForm="ngForm" (ngSubmit)="onSubmit()" class="col-lg-12">
+        <p>
+            <label class="labels">Nombre del departamento</label>
+            <input type="text" name="departmentName" #departmentName="ngModel" [(ngModel)]="department.departmentName" class="form-control" required/>
+            <span *ngIf="!departmentName.valid && departmentName.touched">
+                El nombre del departamento es obligatorio
+            </span>
+        </p>
+
+        <input type="sumbit" value="{{title}}" class="btn btn-warning" [disabled]="!departmentEditForm.valid">
+    </form>
+</div>

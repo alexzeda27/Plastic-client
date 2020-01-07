@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { GLOBAL } from './global';
 import { Employee } from '../models/employee';
-import { map } from "rxjs/operators";
 
 @Injectable()
 export class EmployeeService{
@@ -22,7 +21,7 @@ export class EmployeeService{
         let params = JSON.stringify(employee);
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-        return this._http.post(this.url + 'registrar', params, {headers:headers});
+        return this._http.post(this.url + 'registrar-empleado', params, {headers:headers});
     }
 
     //Método para logear empleados
@@ -79,7 +78,7 @@ export class EmployeeService{
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
         //TO DO Agregar token
 
-        return this._http.put(this.url + 'actualizar/' + employee.payroll, params, {headers: headers});
+        return this._http.put(this.url + 'actualizar-empleado/' + employee.payroll, params, {headers: headers});
     }
 
     //Enlistar empleados
@@ -87,7 +86,7 @@ export class EmployeeService{
     {
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-        return this._http.get(this.url + 'consultar-paginados/' + page, {headers: headers});
+        return this._http.get(this.url + 'consultar-empleado-paginados/' + page, {headers: headers});
     }
 
     //Cargar lista de empleado individual
@@ -95,6 +94,6 @@ export class EmployeeService{
     {
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-        return this._http.get(this.url + 'consultar/' + payroll, {headers: headers});
+        return this._http.get(this.url + 'consultar-empleado/' + payroll, {headers: headers});
     }
 }

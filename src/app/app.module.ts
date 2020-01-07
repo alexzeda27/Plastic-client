@@ -12,6 +12,10 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { EmployeeEditComponent } from './components/employee-edit/employee-edit.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { HumanResourcesComponent } from './components/human-resources/human-resources.component';
+import { RegisterDepartmentComponent } from './components/register-department/register-department.component';
+import { ProductionComponent } from './components/production/production.component';
+import { DepartmentEditComponent } from './components/department-edit/department-edit.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import { ProfileComponent } from './components/profile/profile.component';
     RegisterComponent,
     HomeComponent,
     EmployeeEditComponent,
-    ProfileComponent
+    ProfileComponent,
+    HumanResourcesComponent,
+    RegisterDepartmentComponent,
+    ProductionComponent,
+    DepartmentEditComponent
   ],
   imports: [
     BrowserModule,

@@ -37,6 +37,12 @@ input[type="submit"]
 
 img
 {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.imageUpdate img
+{
     width: 130px;
     height: 100px;
 }
@@ -270,4 +276,37 @@ img
     {
         margin-right: 100px;
     }
+}
+
+.thumbnail img
+{
+    height: 300px!important;
+    width: 100%;
+    -webkit-transition: all 0.3s ease-out;
+}
+
+.thumbnail img:hover
+{
+    -webkit-transform: scale(1.05);
+    -webkit-transition: all 0.3s ease-in;
+    cursor: pointer;
+}
+
+.caption h3
+{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.caption p
+{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.caption a
+{
+    display: block;
+    text-align: center;
+    max-width: 100%;
 }
