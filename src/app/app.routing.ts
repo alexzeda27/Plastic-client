@@ -11,6 +11,8 @@ import { HumanResourcesComponent } from './components/human-resources/human-reso
 import { RegisterDepartmentComponent } from './components/register-department/register-department.component';
 import { ProductionComponent } from './components/production/production.component';
 import { DepartmentEditComponent } from './components/department-edit/department-edit.component';
+import { EmployeeQueryComponent } from './components/employee-query/employee-query.component';
+import { MobilityComponent } from './components/mobility/mobility.component';
 
 const appRoutes: Routes = [
     {path: '', component: HomeComponent},
@@ -22,7 +24,9 @@ const appRoutes: Routes = [
     {path: 'recursos-humanos', component: HumanResourcesComponent},
     {path: 'registrar-departamento', component: RegisterDepartmentComponent},
     {path: 'produccion', component: ProductionComponent},
-    {path: 'actualizar-departamento', component: DepartmentEditComponent}
+    {path: 'actualizar-departamento', component: DepartmentEditComponent},
+    {path: 'consultar-empleado', component: EmployeeQueryComponent},
+    {path: 'movilidad', component: MobilityComponent}
 ];
 
 export const appRoutingProviders: any[] = [];
