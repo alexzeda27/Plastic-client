@@ -1,0 +1,19 @@
+<div class="col-lg 3 col-lg-offset-4">
+    <h1 class="h1-strong">
+        {{title}}
+    </h1>
+
+    <div class="alert alert-success" *ngIf="status == 'success'">Se han actualizado los datos correctamente</div>
+
+    <div class="alert alert-danger" *ngIf="status == 'error'">No se han podido actualizar los datos.</div>
+
+    <form #squareEditForm="ngForm" (ngSubmit)="onSubmit()" class="col-lg-12">
+        <p>
+            <label>Número de bloque</label>
+            <input type="text" name="numberSquare" #numberSquare="ngModel" [(ngModel)]="square.numberSquare" class="form-control" required/>
+            <span *ngIf="!numberSquare.valid && numberSquare.touched">El número de bloque es obligatorio</span>
+        </p>
+
+        <input type="submit" value="{{title}}" class="btn btn-warning" [disabled]="!squareEditForm.valid"/>
+    </form>
+</div>
