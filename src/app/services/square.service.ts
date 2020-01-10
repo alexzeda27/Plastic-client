@@ -24,6 +24,22 @@ export class SquareService{
         return this._http.post(this.url + 'crear-bloque', params, {headers:headers});
     }
 
+    //Método para listar bloques
+    getSquares(page = null): Observable<any>
+    {
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+        return this._http.get(this.url + 'consultar-bloque-paginados/' + page, {headers: headers});
+    }
+
+    //Método para listar un solo bloque
+    getSquare(id): Observable<any>
+    {
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+        return this._http.get(this.url + 'consultar-bloque' + id, {headers: headers});
+    }
+
     //Método para actualizar bloques
     updateSquare(square: Square): Observable<any>
     {

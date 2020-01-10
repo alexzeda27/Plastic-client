@@ -14,7 +14,7 @@ import { DepartmentEditComponent } from './components/department-edit/department
 import { EmployeeQueryComponent } from './components/employee-query/employee-query.component';
 import { MobilityComponent } from './components/mobility/mobility.component';
 import { CreateSquareComponent } from './components/create-square/create-square.component';
-import { SquareEditComponent } from './components/square-edit/square-edit.component';
+import { SquaresComponent } from './components/squares/squares.component';
 
 const appRoutes: Routes = [
     {path: '', component: HomeComponent},
@@ -30,7 +30,8 @@ const appRoutes: Routes = [
     {path: 'consultar-empleado', component: EmployeeQueryComponent},
     {path: 'movilidad', component: MobilityComponent},
     {path: 'crear-bloque', component: CreateSquareComponent},
-    {path: 'actualizar-bloque/:id', component: SquareEditComponent}
+    {path: 'bloques', component: SquaresComponent},
+    {path: 'bloques/:page', component: SquaresComponent}
 ];
 
 export const appRoutingProviders: any[] = [];

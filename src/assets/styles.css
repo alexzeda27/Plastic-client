@@ -311,7 +311,38 @@ img
     max-width: 100%;
 }
 
-.btn.btn-info.right
+.buttons-paginates button
 {
-    
+    max-width: 100%;
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: bold;
+    display: block;
 }
+
+.buttons-paginates button:last-child
+{
+    margin-bottom: 0;
+}
+
+.number_square p
+{
+    text-transform: uppercase;
+    margin-top: 30px;
+    margin-left: 15px;
+    font-size: 15px;
+}
+
+.number_square p span
+{
+    color: #1E44A5;
+}
+
+@media (min-width:768px)
+{
+    .number_square p
+    {
+        font-size: 18px;
+    }
+}
+

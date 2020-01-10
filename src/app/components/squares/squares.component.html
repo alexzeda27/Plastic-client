@@ -1,0 +1,43 @@
+<div class="col-lg-8 col-lg-offset-2">
+    <h1 class="h1-strong">
+        {{title}}
+    </h1>
+
+    <div class="squares">
+        <div *ngFor="let square of squares" class="item-square">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="number_square pull-left">
+                        <p>
+                            Número de bloque: <span>{{square.numberSquare}}</span>
+                        </p> 
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="buttons-paginates">
+                        <div class="pull-right">
+                            <button class="btn btn-warning">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                {{button_update}}
+                            </button>
+
+                            <button class="btn btn-danger">
+                                <span class="glyphicon glyphicon-trash"></span>
+                                {{button_delete}}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <ul class="pagination pull-right">
+            <li *ngIf="pages != page"><a [routerLink]="['/bloques', next_page]">Siguiente</a></li>
+        </ul>
+        <ul class="pagination pull-left">
+            <li *ngIf="page > 1"><a [routerLink]="['/bloques', prev_page]">Anterior</a></li>
+        </ul>
+    </div>
+
+</div>

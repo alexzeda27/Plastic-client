@@ -19,7 +19,7 @@ import { DepartmentEditComponent } from './components/department-edit/department
 import { EmployeeQueryComponent } from './components/employee-query/employee-query.component';
 import { MobilityComponent } from './components/mobility/mobility.component';
 import { CreateSquareComponent } from './components/create-square/create-square.component';
-import { SquareEditComponent } from './components/square-edit/square-edit.component';
+import { SquaresComponent } from './components/squares/squares.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,7 @@ import { SquareEditComponent } from './components/square-edit/square-edit.compon
     EmployeeQueryComponent,
     MobilityComponent,
     CreateSquareComponent,
-    SquareEditComponent
+    SquaresComponent
   ],
   imports: [
     BrowserModule,

@@ -38,6 +38,7 @@ export class CreateSquareComponent implements OnInit
 
     onSubmit(form)
     {
+        console.log(this.square);
         this._squareService.create(this.square).subscribe(
             response => {
                 if(response.square && response.square._id)
