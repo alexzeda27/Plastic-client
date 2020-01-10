@@ -2,22 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Employee } from '../../models/employee';
 import { EmployeeService } from '../../services/employee.service';
-import { Square } from '../../models/square';
-import { SquareService } from '../../services/square.service';
+import { Machine } from '../../models/machine';
+import { MachineService } from '../../services/machine.service';
 import { GLOBAL } from '../../services/global';
 
 @Component({
-    selector: 'squares',
-    templateUrl: './squares.component.html',
-    providers: [SquareService]
+    selector: 'machines',
+    templateUrl: './machines.component.html',
+    providers: [MachineService]
 })
-export class SquaresComponent implements OnInit
+export class MachinesComponent implements OnInit
 {
     public title: string;
     public button_update: string;
     public button_delete: string;
     public employee: Employee;
-    public square: Square[];
+    public machine: Machine[];
     public identity;
     public token;
     public status: string;
@@ -27,18 +27,18 @@ export class SquaresComponent implements OnInit
     public prev_page;
     public total;
     public pages;
-    public squares;
+    public machines;
 
     constructor(
         private _route: ActivatedRoute,
         private _router: Router,
         private _employeeService: EmployeeService,
-        private _squareService: SquareService
+        private _machineService: MachineService
     )
     {
-        this.title = "Bloques";
-        this.button_update = "Actualizar Bloque";
-        this.button_delete = "Eliminar Bloque";
+        this.title = "Maquinas";
+        this.button_update = "Actualizar Maquina";
+        this.button_delete = "Eliminar Maquina";
         this.url = GLOBAL.url;
     }
 
@@ -74,24 +74,24 @@ export class SquaresComponent implements OnInit
                 }
             }
 
-            //Devolver listado de bloques 
-            this.getSquares(page);
+            //Devolver listado de maquinas 
+            this.getMachines(page);
         });
     }
 
-    getSquares(page)
+    getMachines(page)
     {
-        this._squareService.getSquares(page).subscribe(
+        this._machineService.getMachines(page).subscribe(
             response => {
-                if(response.squares)
+                if(response.machines)
                 {
                     console.log(response);
                     this.total = response.total;
-                    this.squares = response.squares;
+                    this.machines = response.machines;
                     this.pages = response.pages;
                     if(page > this.pages)
                     {
-                        this._router.navigate(['/bloques', 1]);
+                        this._router.navigate(['/maquinas', 1]);
                     }
                 }
                 else

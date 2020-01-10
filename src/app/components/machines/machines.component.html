@@ -3,13 +3,13 @@
         {{title}}
     </h1>
 
-    <div class="squares">
-        <div *ngFor="let square of squares" class="item-square">
+    <div class="machines">
+        <div *ngFor="let machine of machines" class="item-machine">
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="content pull-left">
                         <p>
-                            Número de bloque: <span>{{square.numberSquare}}</span>
+                            Número de maquina: <span>{{machine.numberMachine}}</span>
                         </p> 
                     </div>
 
@@ -33,10 +33,10 @@
 
         <!-- Pagination -->
         <ul class="pagination pull-right">
-            <li *ngIf="pages != page"><a [routerLink]="['/bloques', next_page]">Siguiente</a></li>
+            <li *ngIf="pages != page"><a [routerLink]="['/maquinas', next_page]">Siguiente</a></li>
         </ul>
         <ul class="pagination pull-left">
-            <li *ngIf="page > 1"><a [routerLink]="['/bloques', prev_page]">Anterior</a></li>
+            <li *ngIf="page > 1"><a [routerLink]="['/maquinas', prev_page]">Anterior</a></li>
         </ul>
     </div>
 

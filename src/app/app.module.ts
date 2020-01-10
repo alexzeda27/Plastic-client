@@ -16,10 +16,12 @@ import { HumanResourcesComponent } from './components/human-resources/human-reso
 import { RegisterDepartmentComponent } from './components/register-department/register-department.component';
 import { ProductionComponent } from './components/production/production.component';
 import { DepartmentEditComponent } from './components/department-edit/department-edit.component';
-import { EmployeeQueryComponent } from './components/employee-query/employee-query.component';
 import { MobilityComponent } from './components/mobility/mobility.component';
 import { CreateSquareComponent } from './components/create-square/create-square.component';
 import { SquaresComponent } from './components/squares/squares.component';
+import { EmployeesComponent } from './components/employees/employees.component';
+import { CreateMachineComponent } from './components/create-machine/create-machine.component';
+import { MachinesComponent } from './components/machines/machines.component';
 
 @NgModule({
   declarations: [
@@ -33,10 +35,12 @@ import { SquaresComponent } from './components/squares/squares.component';
     RegisterDepartmentComponent,
     ProductionComponent,
     DepartmentEditComponent,
-    EmployeeQueryComponent,
     MobilityComponent,
     CreateSquareComponent,
-    SquaresComponent
+    SquaresComponent,
+    EmployeesComponent,
+    CreateMachineComponent,
+    MachinesComponent
   ],
   imports: [
     BrowserModule,

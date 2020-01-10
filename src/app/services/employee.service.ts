@@ -90,7 +90,7 @@ export class EmployeeService{
     }
 
     //Cargar lista de empleado individual
-    getEmploye(payroll): Observable<any>
+    getEmployee(payroll): Observable<any>
     {
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
 

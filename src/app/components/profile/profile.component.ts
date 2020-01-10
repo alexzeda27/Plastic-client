@@ -40,14 +40,16 @@ export class ProfileComponent implements OnInit
     loadPage()
     {
         this._route.params.subscribe(params => {
-            let payroll = params['payroll'];
+            let payroll = + params['payroll'];
+
+            //Devuelve los datos del empleado
             this.getEmployee(payroll);
         });
     }
 
     getEmployee(payroll)
     {
-        this._employeeService.getEmploye(payroll).subscribe(
+        this._employeeService.getEmployee(payroll).subscribe(
             response => {
                 if(response.employee)
                 {

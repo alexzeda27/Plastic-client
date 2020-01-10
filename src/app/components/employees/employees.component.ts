@@ -2,22 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Employee } from '../../models/employee';
 import { EmployeeService } from '../../services/employee.service';
-import { Square } from '../../models/square';
-import { SquareService } from '../../services/square.service';
 import { GLOBAL } from '../../services/global';
 
 @Component({
-    selector: 'squares',
-    templateUrl: './squares.component.html',
-    providers: [SquareService]
+    selector: 'employees',
+    templateUrl: './employees.component.html',
+    providers: [EmployeeService]
 })
-export class SquaresComponent implements OnInit
+export class EmployeesComponent implements OnInit
 {
     public title: string;
     public button_update: string;
     public button_delete: string;
-    public employee: Employee;
-    public square: Square[];
+    public employee: Employee[];
     public identity;
     public token;
     public status: string;
@@ -27,24 +24,23 @@ export class SquaresComponent implements OnInit
     public prev_page;
     public total;
     public pages;
-    public squares;
+    public employees;
 
     constructor(
         private _route: ActivatedRoute,
         private _router: Router,
-        private _employeeService: EmployeeService,
-        private _squareService: SquareService
+        private _employeeService: EmployeeService
     )
     {
-        this.title = "Bloques";
-        this.button_update = "Actualizar Bloque";
-        this.button_delete = "Eliminar Bloque";
+        this.title = "Empleados";
+        this.button_update = "Actualizar Empleado";
+        this.button_delete = "Eliminar Empleado";
         this.url = GLOBAL.url;
     }
 
     ngOnInit()
     {
-        console.log("Componente cargado...");
+        console.log("Componente cargado..");
         this.actualPage();
     }
 
@@ -75,23 +71,23 @@ export class SquaresComponent implements OnInit
             }
 
             //Devolver listado de bloques 
-            this.getSquares(page);
+            this.getEmployees(page);
         });
     }
 
-    getSquares(page)
+    getEmployees(page)
     {
-        this._squareService.getSquares(page).subscribe(
+        this._employeeService.getEmployees(page).subscribe(
             response => {
-                if(response.squares)
+                if(response.employees)
                 {
                     console.log(response);
                     this.total = response.total;
-                    this.squares = response.squares;
+                    this.employees = response.employees;
                     this.pages = response.pages;
                     if(page > this.pages)
                     {
-                        this._router.navigate(['/bloques', 1]);
+                        this._router.navigate(['/empleados', 1]);
                     }
                 }
                 else

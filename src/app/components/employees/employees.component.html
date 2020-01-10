@@ -1,0 +1,54 @@
+<div class="col-lg-8 col-lg-offset-2">
+    <h1 class="h1-strong">
+        {{title}}
+    </h1>
+
+    <div class="employees">
+        <div *ngFor="let employee of employees" class="item-employee">
+            <div class="panel panel-defaul">
+                <div class="panel-body">
+                    <div class="avatar avatar_employee pull-left">
+                        <!-- Cargar la imagen de usuario-->
+                        <img src="{{ url + 'consultar-imagen/' + employee.image}}" *ngIf="employee.image" alt="Imágen de {{employee.name}}"/>
+                        <img src="assets/default.png" *ngIf="!employee.image" alt="Imágen por default">
+                    </div>
+                    <div class="content content_employee pull-left" *ngIf="employee">
+                        
+                        <p>
+                            Nombre del empleado: <span> {{employee.name + ' ' + employee.surnameP + ' ' + employee.surnameM}} </span>
+                        </p>
+                        <p>
+                            Departamento del empleado: <span> {{employee.department.departmentName}} </span>
+                        </p>
+                        <p>
+                            Puesto del empleado: <span> {{employee.position.positionName}} </span>
+                        </p>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="buttons-paginates buttons-employee">
+                        <div class="pull-right">
+                            <a [routerLink]="['/actualizar-empleado']" class="btn btn-warning">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                {{button_update}}
+                            </a>
+
+                            <a class="btn btn-danger">
+                                <span class="glyphicon glyphicon-trash"></span>
+                                {{button_delete}}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <ul class="pagination pull-right">
+            <li *ngIf="pages != page"><a [routerLink]="['/empleados', next_page]">Siguiente</a></li>
+        </ul>
+        <ul class="pagination pull-left">
+            <li *ngIf="page > 1"><a [routerLink]="['/empleados', prev_page]">Anterior</a></li>
+        </ul>
+    </div>
+</div>

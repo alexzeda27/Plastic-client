@@ -18,6 +18,9 @@ export class EmployeeEditComponent implements OnInit{
     public token;
     public status: string;
     public url: string;
+    public payroll;
+
+    public employees;
 
     constructor(
         private _route: ActivatedRoute,
@@ -37,51 +40,49 @@ export class EmployeeEditComponent implements OnInit{
     ngOnInit()
     {
         console.log('Componente cargado...');
+        this.loadPage();
     }
 
-    onSubmit()
+    loadPage()
     {
-        console.log(this.employee);
-        this._employeeService.updateEmployee(this.employee).subscribe(
+        this._route.params.subscribe(params => {
+            let payroll = + params['payroll'];
+            this.payroll = payroll;
+
+            if(!params['payroll'])
+            {
+                payroll = this.payroll;
+            }
+
+            //Devuelve los datos del empleado
+            this.getEmployee(payroll);
+
+            console.log(this.payroll)
+        });
+    }
+
+    getEmployee(payroll)
+    {
+        this._employeeService.getEmployee(payroll).subscribe(
             response => {
-                if(!response.employee){
-                    console.log('Marca aqui');
-                    this.status = 'error';
+                if(response.employee.payroll)
+                {
+                    console.log(response);
                 }
                 else
                 {
-                    this.status = 'success';
-                    localStorage.setItem('identity', JSON.stringify(this.employee));
-                    this.identity = this.employee;
-
-                    //Subida de imágen de empleados 
-                    this._uploadService.makeFileRequest(this.url + 'cargar-imagen/' + this.employee.payroll, [], this.filesToUpload, /*this.token,*/ 'image')
-                            .then((result: any) => {
-                                this.employee.image = result.employee.image;
-                                localStorage.setItem('identity', JSON.stringify(this.employee));
-                            });
+                    this.status = 'error';
                 }
             },
             error => {
                 var errorMessage = <any>error;
+                console.log(errorMessage);
 
                 if(errorMessage != null)
                 {
-                    console.log('Marca aqui 2');
                     this.status = 'error';
                 }
             }
         );
-    }
-
-    public filesToUpload: Array<File>;
-    fileChangeEvent(fileInput: any)
-    {
-        this.filesToUpload = <Array<File>>fileInput.target.files;
-    }
-
-    redirection()
-    {
-        this._router.navigate(['/login']);
-    }   
+    } 
 }
