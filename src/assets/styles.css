@@ -24,6 +24,11 @@
     font-size: 17px;
 }
 
+.border-red
+{
+    border: 2px solid red!important;
+}
+
 input
 {
     margin-bottom: 15px!important;

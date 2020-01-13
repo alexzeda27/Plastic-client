@@ -1,0 +1,43 @@
+<div class="col-lg-6 col-lg-offset-3">
+    <h1 class="h1-strong">
+        {{title}}
+    </h1>
+
+    <div class="squares">
+        <div *ngFor="let department of departments" class="item-department">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="content pull-left">
+                        <p>
+                            Nombre del departamento: <span>{{department.departmentName}}</span>
+                        </p> 
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="buttons-paginates">
+                        <div class="pull-right">
+                            <a class="btn btn-warning">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                {{button_update}}
+                            </a>
+
+                            <a class="btn btn-danger">
+                                <span class="glyphicon glyphicon-trash"></span>
+                                {{button_delete}}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <ul class="pagination pull-right">
+            <li *ngIf="pages != page"><a [routerLink]="['/departamentos', next_page]">Siguiente</a></li>
+        </ul>
+        <ul class="pagination pull-left">
+            <li *ngIf="page > 1"><a [routerLink]="['/departamentos', prev_page]">Anterior</a></li>
+        </ul>
+    </div>
+
+</div>

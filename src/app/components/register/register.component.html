@@ -22,7 +22,7 @@
         <p>
         <label class="labels">Nombre</label>
         <input type="text" name="name" #name="ngModel" [(ngModel)]="employee.name" class="form-control" required/>
-        <span *ngIf="!name.valid && name.touched">
+        <span *ngIf="!name.valid && name.touched" class="border-red">
             El nombre es obligatorio
         </span>
         </p>
@@ -61,6 +61,15 @@
 
 
         <!-- TO DO Agregar campos de puesto y departamento -->
+
+        <p>
+            <label class="labels">Departamento</label>
+            <select name="department" #department="ngModel" [(ngModel)]="department.departmentName" class="form-control" required>
+                <span *ngIf="!department.valid && department.touched">El departamento es obligatorio</span>
+                <option value="" disabled>Elige un departamento</option>
+                <option >{{department.departmentName}}</option>
+            </select>
+        </p>
 
 
         <input type="submit" value="{{title}}" class="btn btn-success" [disabled]="!registerForm.form.valid"/>

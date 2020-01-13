@@ -96,4 +96,11 @@ export class EmployeeService{
 
         return this._http.get(this.url + 'consultar-empleado/' + payroll, {headers: headers});
     }
+
+    removeImage(payroll, imageFile): Observable<any>
+    {
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+        return this._http.put(this.url + 'eliminar-imagen/' + payroll + '/' + imageFile, {headers: headers});
+    }
 }

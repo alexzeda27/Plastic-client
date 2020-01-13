@@ -24,4 +24,20 @@ export class DepartmentService
 
         return this._http.post(this.url + 'registrar-departamento', params, {headers:headers});
     }
+
+    //Método para listar departamentos
+    getDepartments(page = null): Observable<any>
+    {
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+    
+        return this._http.get(this.url + 'consultar-departamento-paginados/' + page, {headers: headers});
+    }
+    
+    //Método para listar un solo bloque
+    getDepartment(id): Observable<any>
+    {
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+    
+        return this._http.get(this.url + 'consultar-departamento' + id, {headers: headers});
+    }
 }

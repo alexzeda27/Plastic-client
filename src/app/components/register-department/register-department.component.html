@@ -4,7 +4,7 @@
     </h1>
 
     <div class="alert alert-success" *ngIf="status == 'success'">
-        Registro guardado correctamente
+        Registro guardado correctamente, <a [routerLink]="['/departamentos']">Ver departamentos aquí</a>
     </div>
 
     <div class="alert alert-danger" *ngIf="status == 'error'">
