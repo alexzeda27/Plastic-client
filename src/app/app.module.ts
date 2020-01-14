@@ -17,6 +17,7 @@ import { ProductionComponent } from './components/production/production.componen
 import { MobilityComponent } from './components/mobility/mobility.component';
 import { CreateSquareComponent } from './components/create-square/create-square.component';
 import { SquaresComponent } from './components/squares/squares.component';
+import { EmployeeEditComponent } from './components/employee-edit/employee-edit.component';
 import { EmployeesComponent } from './components/employees/employees.component';
 import { DepartmentsComponent } from './components/departments/departments.component';
 import { CreateMachineComponent } from './components/create-machine/create-machine.component';
@@ -36,6 +37,7 @@ import { ExportExcel } from './components/xlsx/xlsx.component';
     MobilityComponent,
     CreateSquareComponent,
     SquaresComponent,
+    EmployeeEditComponent,
     EmployeesComponent,
     DepartmentsComponent,
     CreateMachineComponent,

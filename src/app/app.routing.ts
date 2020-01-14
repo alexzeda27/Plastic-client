@@ -12,6 +12,7 @@ import { ProductionComponent } from './components/production/production.componen
 import { MobilityComponent } from './components/mobility/mobility.component';
 import { CreateSquareComponent } from './components/create-square/create-square.component';
 import { SquaresComponent } from './components/squares/squares.component';
+import { EmployeeEditComponent } from './components/employee-edit/employee-edit.component';
 import { EmployeesComponent } from './components/employees/employees.component';
 import { DepartmentsComponent } from './components/departments/departments.component';
 import { CreateMachineComponent } from './components/create-machine/create-machine.component';
@@ -23,6 +24,7 @@ const appRoutes: Routes = [
     {path: 'home', component: HomeComponent},
     {path: 'login', component: LoginComponent},
     {path: 'registrar-empleado', component: RegisterComponent},
+    {path: 'perfil', component: ProfileComponent},
     {path: 'perfil/:payroll', component: ProfileComponent},
     {path: 'recursos-humanos', component: HumanResourcesComponent},
     {path: 'registrar-departamento', component: RegisterDepartmentComponent},
@@ -31,6 +33,8 @@ const appRoutes: Routes = [
     {path: 'crear-bloque', component: CreateSquareComponent},
     {path: 'bloques', component: SquaresComponent},
     {path: 'bloques/:page', component: SquaresComponent},
+    {path: 'actualizar-empleado', component: EmployeeEditComponent},
+    {path: 'actualizar-empleado/:payroll', component: EmployeeEditComponent},
     {path: 'empleados', component: EmployeesComponent},
     {path: 'empleados/:page', component: EmployeesComponent},
     {path: 'departamentos', component: DepartmentsComponent},

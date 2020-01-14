@@ -1,5 +1,6 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
 import { Router, ActivatedRoute, Params} from '@angular/router';
+import { Employee } from './models/employee';
 import { EmployeeService } from './services/employee.service';
 import { GLOBAL } from './services/global';
 
@@ -10,9 +11,12 @@ import { GLOBAL } from './services/global';
   providers: [EmployeeService]
 })
 export class AppComponent implements OnInit, DoCheck{
-  title: string;
+  public title: string;
   public identity;
+  public identityEmployee;
   public url: string;
+  public employee: Employee;
+
 
   constructor(
     private _route: ActivatedRoute,
@@ -22,6 +26,8 @@ export class AppComponent implements OnInit, DoCheck{
   {
     this.title = 'PLASTIC APP';
     this.url = GLOBAL.url;
+    this.employee = this._employeeService.getIdentity();
+    this.identityEmployee = this.employee;
   }
 
   ngOnInit()

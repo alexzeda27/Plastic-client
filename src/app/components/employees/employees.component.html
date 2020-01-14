@@ -28,15 +28,11 @@
                     <!-- Buttons -->
                     <div class="buttons-paginates buttons-employee">
                         <div class="pull-right">
-                            <a [routerLink]="['/actualizar-empleado']" class="btn btn-warning">
-                                <span class="glyphicon glyphicon-pencil"></span>
-                                {{button_update}}
+                            <a [routerLink]="['/perfil', employee.payroll]" class="btn btn-info" (click)="getEmployee(employee.payroll)">
+                                <span class="glyphicon glyphicon-check"></span>
+                                {{button_profile}}
                             </a>
 
-                            <a class="btn btn-danger">
-                                <span class="glyphicon glyphicon-trash"></span>
-                                {{button_delete}}
-                            </a>
                         </div>
                     </div>
                 </div>

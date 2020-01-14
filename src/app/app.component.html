@@ -75,7 +75,7 @@
           </a>
           <ul class="dropdown-menu">
             <li>
-              <a [routerLink]="['/perfil/:payroll']"><span class="glyphicon glyphicon-user"></span> Mi perfil</a>
+              <a [routerLink]="['/perfil', identity.payroll]"><span class="glyphicon glyphicon-user"></span> Mi perfil</a>
             </li>
             <li>
               <a class="pointer" (click)="logout()"><span class="glyphicon glyphicon-log-out"></span> Cerrar Sesión</a>

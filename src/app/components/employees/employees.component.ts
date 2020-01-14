@@ -14,8 +14,10 @@ export class EmployeesComponent implements OnInit
     public title: string;
     public button_update: string;
     public button_delete: string;
+    public button_profile: string;
     public employee: Employee[];
     public identity;
+    public identityEmployee;
     public token;
     public status: string;
     public url: string;
@@ -33,8 +35,10 @@ export class EmployeesComponent implements OnInit
     )
     {
         this.title = "Empleados";
-        this.button_update = "Actualizar Empleado";
-        this.button_delete = "Eliminar Empleado";
+        this.button_profile = "Ver perfil";
+        this.employee = this._employeeService.getIdentityEmployee();
+        this.identityEmployee = this.employee;
+        this.token = this._employeeService.getToken();
         this.url = GLOBAL.url;
     }
 
@@ -89,6 +93,32 @@ export class EmployeesComponent implements OnInit
                     {
                         this._router.navigate(['/empleados', 1]);
                     }
+                }
+                else
+                {
+                    this.status = 'error';
+                }
+            },
+            error => {
+                var errorMessage = <any>error;
+                console.log(errorMessage);
+
+                if(errorMessage != null)
+                {
+                    this.status = 'error';
+                }
+            }
+        );
+    }
+
+    getEmployee(payroll)
+    {
+        this._employeeService.getEmployee(payroll).subscribe(
+            response => {
+                if(response.employee.payroll)
+                {
+                    console.log(response);
+                    localStorage.setItem('identityEmployee', JSON.stringify(response.employee));
                 }
                 else
                 {

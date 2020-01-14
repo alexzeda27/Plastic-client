@@ -8,7 +8,9 @@ import { Employee } from '../models/employee';
 export class EmployeeService{
  
     public url: string;
+    public employee;
     public identity;
+    public identityEmployee;
     public token;
 
     constructor(public _http: HttpClient)
@@ -52,6 +54,22 @@ export class EmployeeService{
         }
 
         return this.identity;
+    }
+
+    getIdentityEmployee()
+    {
+        let identityEmployee = JSON.parse(localStorage.getItem('identityEmployee'));
+
+        if(identityEmployee != "undefined")
+        {
+            this.identityEmployee = identityEmployee;
+        }
+        else
+        {
+            this.identityEmployee = null;
+        }
+
+        return this.identityEmployee;
     }
 
     //Método para generar el token de usuario

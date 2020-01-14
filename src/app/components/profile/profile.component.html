@@ -1,4 +1,4 @@
-<div class="col-lg-5">
+<div class="col-lg-7">
     <h1 class="h1-strong">
         {{title}}   
     </h1>
@@ -17,6 +17,21 @@
         <div class="work pull-left">
             <p class="department">Departamento: <span>{{employee.department.departmentName}}</span></p>
             <p class="position">Puesto: <span>{{employee.position.positionName}}</span></p>
+        </div>
+
+        <!-- Buttons -->
+        <div class="buttons-paginates" *ngIf="identity.payroll == '12345'">
+            <div class="pull-right">
+                <a [routerLink]="['/actualizar-empleado', employee.payroll]" class="btn btn-warning">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                    {{button_update}}
+                </a>
+
+                <a class="btn btn-danger">
+                    <span class="glyphicon glyphicon-trash"></span>
+                    {{button_delete}}
+                </a>
+            </div>
         </div>
     
     </div>

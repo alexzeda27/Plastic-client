@@ -13,11 +13,15 @@ export class ProfileComponent implements OnInit
 {
     public title: string;
     public employee: Employee;
+    public button_update: string;
+    public button_delete: string;
     public status: string;
     public identity;
+    public identityEmployee;
     public token;
     public url;
-    public jsonObject: any;
+    public payroll;
+    public employees;
 
     constructor(
         private _route: ActivatedRoute,
@@ -26,7 +30,10 @@ export class ProfileComponent implements OnInit
     )
     {
         this.title = 'Perfil';
-        this.identity = this._employeeService.getIdentity();
+        this.button_update = "Actualizar Empleado";
+        this.button_delete = "Eliminar Empleado";
+        this.employee = this._employeeService.getIdentity();
+        this.identity = this.employee;
         this.token = this._employeeService.getToken();
         this.url = GLOBAL.url;
     }
@@ -41,6 +48,12 @@ export class ProfileComponent implements OnInit
     {
         this._route.params.subscribe(params => {
             let payroll = + params['payroll'];
+            this.payroll = payroll;
+
+            if(!params['payroll'])
+            {
+                payroll = this.payroll;
+            }
 
             //Devuelve los datos del empleado
             this.getEmployee(payroll);
@@ -51,7 +64,7 @@ export class ProfileComponent implements OnInit
     {
         this._employeeService.getEmployee(payroll).subscribe(
             response => {
-                if(response.employee)
+                if(response.employee.payroll)
                 {
                     console.log(response);
                     

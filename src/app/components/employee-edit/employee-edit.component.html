@@ -1,0 +1,55 @@
+<div class="col-lg-3 col-lg-offset-4">
+    <h1 class="h1-strong">{{title}}</h1>
+
+    <form #employeeEditForm="ngForm" (ngSubmit)="onSubmit()" class="col-lg-12">
+
+        <p>
+        <label>Número de nomina</label>
+        <input type="text" name="payroll" #payroll="ngModel" [(ngModel)]="employee.payroll" class="form-control" required/>
+        <span *ngIf="!payroll.valid && payroll.touched">El número de nomina es obligatorio</span>
+        </p>
+
+        <p>
+        <label>Nombre</label>
+        <input type="text" name="name" #name="ngModel" [(ngModel)]="employee.name" class="form-control" required/>
+        <span *ngIf="!name.value && name.touched">El nombre es obligatorio</span>
+        </p>
+
+        <p>
+        <label>Apellido Parterno</label>
+        <input type="text" name="surnameP" #surnameP="ngModel" [(ngModel)]="employee.surnameP" class="form-control" required/>
+        <span *ngIf="!surnameP.value && surnameP.touched">El apellido paterno es obligatorio</span>
+        </p>
+
+        <p>
+        <label>Apellido Materno</label>
+        <input type="text" name="surnameM" #surnameM="ngModel" [(ngModel)]="employee.surnameM" class="form-control" required/>
+        <span *ngIf="!surnameM.value && surnameM.touched">El apellido materno es obligatorio</span>
+        </p>
+
+        <p>
+        <label>Nombre de usuario</label>
+        <input type="text" name="username" #username="ngModel" [(ngModel)]="employee.username" class="form-control" required/>
+        <span *ngIf="!username.value && username.touched">El nombre de usuario es obligatorio</span>
+        </p>
+
+        <div class="imageUpdate">
+            <img src="{{ url + 'consultar-imagen/' + employee.image }}" *ngIf="employee.image" alt="Foto de {{employee.name}}"/><br><br>
+            <a class = "btn btn-danger" *ngIf="employee.image" onClick="removeImage(payroll, imageFile)">Eliminar foto</a><br>
+        </div>
+
+        <div class="imageUpdate">
+            <img src="assets/default.png" *ngIf="!employee.image"  alt="Imágen por default">
+        </div>
+
+        <p>
+        <label>Sube una foto de perfil</label>
+        <input type="file" placeholder="Subir imágen" (change)="fileChangeEvent($event)"/>
+        </p>
+
+        <!-- TO DO Agregar campos de puesto y departamento -->
+
+        <input type="submit" value="{{button}}" class="btn btn-warning" [disabled]="!employeeEditForm.valid"/>
+    </form>
+
+</div>
