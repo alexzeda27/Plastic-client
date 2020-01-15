@@ -1,0 +1,42 @@
+<div class="col-lg-3 col-lg-offset-4">
+    <h1 class="h1-strong">
+        {{title}}
+    </h1>
+
+    <div class="alert alert-success" *ngIf="status == 'success'">
+        Registro guardado correctamente, <a [routerLink]="['/puestos']">Ver puestos aquí</a>
+    </div>
+
+    <div class="alert alert-danger" *ngIf="status == 'error'">
+        Ocurrio un error al guardar el registro
+    </div>
+
+    <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" class="col-lg-12">
+        <p>
+            <label class="labels">Nombre del puesto</label>
+            <input type="text" name="positionName" #positionName="ngModel" [(ngModel)]="position.positionName" class="form-control" required/>
+            <span *ngIf="!positionName.valid && positionName.touched">
+                El nombre del puesto es obligatorio
+            </span>
+        </p>
+
+        <p>
+            <label class="labels">Tipo de trabajador</label>
+            <select name="type" #type="ngModel" [(ngModel)]="typeWorker.type" class="form-control" required>
+                <span *ngIf="!type.valid && type.touched">El tipo de trabajador es obligatorio</span>
+                <option *ngFor="let ty of typeWorker" [value]="ty._id">{{ty.type.toUpperCase()}}</option>
+            </select>
+        </p>
+
+        <p>
+            <label class="labels">Centro de costos</label>
+            <select name="costCenter" #costCenter="ngModel" [(ngModel)]="position.costCenter" ng-options="typeWorker as typeWorker.center for typeworker in typeWorkers track by typeWorker._id" class="form-control" required>
+                <span *ngIf="!costCenter.valid && costCenter.touched">El centro de costos es obligatorio</span>
+                <option value="" disabled>ELIGE UN CENTRO DE COSTO</option>
+            </select>
+        </p>
+
+        <input type="submit" value="{{title}}" class="btn btn-success" [disabled]="!registerForm.form.valid"/>
+    </form>
+
+</div>

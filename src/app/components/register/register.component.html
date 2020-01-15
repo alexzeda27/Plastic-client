@@ -64,10 +64,11 @@
 
         <p>
             <label class="labels">Departamento</label>
-            <select name="department" #department="ngModel" [(ngModel)]="department.departmentName" class="form-control" required>
+            <select name="department" #department="ngModel" [(ngModel)]="employee.department" class="form-control" id="department" required>
                 <span *ngIf="!department.valid && department.touched">El departamento es obligatorio</span>
                 <option value="" disabled>Elige un departamento</option>
-                <option >{{department.departmentName}}</option>
+                <option *ngFor="let department of departments" [value]="department._id">{{department.departmentName}}</option>
+                
             </select>
         </p>
 

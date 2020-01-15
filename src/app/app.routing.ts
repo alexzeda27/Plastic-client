@@ -8,6 +8,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { HumanResourcesComponent } from './components/human-resources/human-resources.component';
 import { RegisterDepartmentComponent } from './components/register-department/register-department.component';
+import { RegisterPositionComponent } from './components/register-position/register-position.component';
 import { ProductionComponent } from './components/production/production.component';
 import { MobilityComponent } from './components/mobility/mobility.component';
 import { CreateSquareComponent } from './components/create-square/create-square.component';
@@ -28,6 +29,7 @@ const appRoutes: Routes = [
     {path: 'perfil/:payroll', component: ProfileComponent},
     {path: 'recursos-humanos', component: HumanResourcesComponent},
     {path: 'registrar-departamento', component: RegisterDepartmentComponent},
+    {path: 'registrar-puesto', component: RegisterPositionComponent},
     {path: 'produccion', component: ProductionComponent},
     {path: 'movilidad', component: MobilityComponent},
     {path: 'crear-bloque', component: CreateSquareComponent},
