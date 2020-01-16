@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Position } from '../../models/position';
 import { PositionService } from '../../services/position.service';
@@ -19,6 +20,7 @@ export class RegisterPositionComponent implements OnInit
     public costCenters;
     public costCenter: CostCenter[];
     public status: string;
+    public onlyMayus;
 
     constructor(
         private _route: ActivatedRoute,
@@ -56,12 +58,18 @@ export class RegisterPositionComponent implements OnInit
                 if(response.position && response.position._id)
                 {
                     console.log(response.position);
-                    this.status = 'success';
+
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Opss..',
+                        text: 'Ocurrio un error'
+                    });
+                    
                     form.reset();
                 }
                 else
                 {
-                    this.status = 'error';
+                    Swal.fire('Hello world');
                 }
             },
             error => {
@@ -69,4 +77,5 @@ export class RegisterPositionComponent implements OnInit
             }
         );
     }
+
 }

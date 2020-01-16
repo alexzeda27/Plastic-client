@@ -3,18 +3,12 @@
         {{title}}
     </h1>
 
-    <div class="alert alert-success" *ngIf="status == 'success'">
-        Registro guardado correctamente, <a [routerLink]="['/puestos']">Ver puestos aquí</a>
-    </div>
 
-    <div class="alert alert-danger" *ngIf="status == 'error'">
-        Ocurrio un error al guardar el registro
-    </div>
 
     <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" class="col-lg-12">
         <p>
             <label class="labels">Nombre del puesto</label>
-            <input type="text" name="positionName" #positionName="ngModel" [(ngModel)]="position.positionName" class="form-control" required/>
+            <input type="text" name="positionName" #positionName="ngModel" [(ngModel)]="position.positionName" class="form-control" onkeyup="javascript: this.value = this.value.toUpperCase();" onkeydown="javascript: this.value = this.value.toUpperCase();" required/>
             <span *ngIf="!positionName.valid && positionName.touched">
                 El nombre del puesto es obligatorio
             </span>
@@ -22,17 +16,17 @@
 
         <p>
             <label class="labels">Tipo de trabajador</label>
-            <select name="type" #type="ngModel" [(ngModel)]="typeWorker.type" class="form-control" required>
+            <select name="type" #type="ngModel" [(ngModel)]="position.typeWorker" class="form-control" required>
                 <span *ngIf="!type.valid && type.touched">El tipo de trabajador es obligatorio</span>
-                <option *ngFor="let ty of typeWorker" [value]="ty._id">{{ty.type.toUpperCase()}}</option>
+                <option *ngFor="let type of typeWorker" [value]="type._id">{{type.type.toUpperCase()}}</option>
             </select>
         </p>
 
         <p>
             <label class="labels">Centro de costos</label>
-            <select name="costCenter" #costCenter="ngModel" [(ngModel)]="position.costCenter" ng-options="typeWorker as typeWorker.center for typeworker in typeWorkers track by typeWorker._id" class="form-control" required>
-                <span *ngIf="!costCenter.valid && costCenter.touched">El centro de costos es obligatorio</span>
-                <option value="" disabled>ELIGE UN CENTRO DE COSTO</option>
+            <select name="center" #center="ngModel" [(ngModel)]="position.costCenter" class="form-control" required>
+                <span *ngIf="!center.valid && center.touched">El centro de costos es obligatorio</span>
+                <option *ngFor="let center of costCenter" [value]="center._id">{{center.center.toUpperCase()}}</option>
             </select>
         </p>
 
@@ -40,3 +34,4 @@
     </form>
 
 </div>
+
