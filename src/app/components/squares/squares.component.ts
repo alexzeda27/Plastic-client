@@ -4,6 +4,8 @@ import { Employee } from '../../models/employee';
 import { EmployeeService } from '../../services/employee.service';
 import { Square } from '../../models/square';
 import { SquareService } from '../../services/square.service';
+import { Department } from '../../models/department';
+import { DepartmentService } from '../../services/department.service';
 import { GLOBAL } from '../../services/global';
 
 @Component({
@@ -18,6 +20,7 @@ export class SquaresComponent implements OnInit
     public button_delete: string;
     public employee: Employee;
     public square: Square[];
+    public department: Department[];
     public identity;
     public token;
     public status: string;
@@ -33,7 +36,7 @@ export class SquaresComponent implements OnInit
         private _route: ActivatedRoute,
         private _router: Router,
         private _employeeService: EmployeeService,
-        private _squareService: SquareService
+        private _squareService: SquareService,
     )
     {
         this.title = "Bloques";

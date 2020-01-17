@@ -23,6 +23,7 @@ import { EmployeesComponent } from './components/employees/employees.component';
 import { DepartmentsComponent } from './components/departments/departments.component';
 import { CreateMachineComponent } from './components/create-machine/create-machine.component';
 import { MachinesComponent } from './components/machines/machines.component';
+import { SecurityComponent } from './components/security/security.component';
 import { ExportExcel } from './components/xlsx/xlsx.component';
 
 @NgModule({
@@ -44,6 +45,7 @@ import { ExportExcel } from './components/xlsx/xlsx.component';
     DepartmentsComponent,
     CreateMachineComponent,
     MachinesComponent,
+    SecurityComponent,
     ExportExcel
   ],
   imports: [

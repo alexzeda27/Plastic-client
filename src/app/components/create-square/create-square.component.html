@@ -3,22 +3,21 @@
         {{title}}
     </h1>
 
-    <div class="alert alert-success" *ngIf="status == 'success'">
-        Registro guardado correctamente, <a [routerLink]="['/bloques']">Ver bloques aquí</a>
-    </div>
-
-    <div class="alert alert-danger" *ngIf="status == 'error'">
-        Ocurrio un error al guardar el registro
-    </div>
-
     <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" class="col-lg-12">
 
         <p>
-            <label class="labels">Número de bloque</label>
-            <input type="text" name="numberSquare" #numberSquare="ngModel" [(ngModel)]="square.numberSquare" class="form-control" required/>
+            <label class="labels">* Número de bloque</label>
+            <input type="number" name="numberSquare" #numberSquare="ngModel" [(ngModel)]="square.numberSquare" class="form-control" placeholder="Ingresa un número de bloque" required/>
             <span *ngIf="!numberSquare.valid && numberSquare.touched">
                 El número de bloque es obligatorio
             </span>
+        </p>
+
+        <p>
+            <label class="labels">* Departamento</label>
+                <select name="departmentName" #departmentName="ngModel" [(ngModel)]="square.department" class="form-control" required>
+                    <option *ngFor="let dep of department" [value]="dep._id">{{dep.departmentName.toUpperCase()}}</option>
+                </select>
         </p>
 
         <input type="submit" value="{{title}}" class="btn btn-success" [disabled]="!registerForm.form.valid"/>

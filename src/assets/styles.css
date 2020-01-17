@@ -29,6 +29,12 @@
     border: 2px solid red!important;
 }
 
+.safestart-logo
+{
+    width: 40%;
+    height: 100%;
+}
+
 input
 {
     margin-bottom: 15px!important;

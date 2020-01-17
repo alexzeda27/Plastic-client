@@ -1,4 +1,4 @@
-<div class="col-lg-10 col-lg-offset-1">
+<div class="col-lg-6 col-lg-offset-3">
     <h1 class="h1-strong">{{title}}</h1>
 
     <form #registerForm="ngForm" (ngSubmit) = "onSubmit(registerForm)" class="col-lg-12">
@@ -8,7 +8,7 @@
             <div class="form-group col-md-4">
 
                 <label class="labels">* Número de nómina</label>
-                <input type="text" name="payroll" #payroll="ngModel" [(ngModel)]="employee.payroll" class="form-control border-red" placeholder="Ingresa un número de nómina" required/>
+                <input type="number" name="payroll" #payroll="ngModel" [(ngModel)]="employee.payroll" class="form-control" placeholder="Ingresa un número de nómina" autofocus required/>
                 
             </div>
 
@@ -48,7 +48,7 @@
             <div class="form-group col-md-4">
 
                 <label class="labels">* Contraseña</label>
-                <input type="password" name="password" #password="ngModel" [(ngModel)]="employee.password" class="form-control" placeholder="Ingresa una contraseña"  required/>
+                <input type="password" name="password" #password="ngModel" [(ngModel)]="employee.password" class="form-control" placeholder="Ingresa una contraseña min 8 caracteres" minlength="8" maxlength="10" required/>
 
             </div>
 

@@ -18,6 +18,7 @@ import { EmployeesComponent } from './components/employees/employees.component';
 import { DepartmentsComponent } from './components/departments/departments.component';
 import { CreateMachineComponent } from './components/create-machine/create-machine.component';
 import { MachinesComponent } from './components/machines/machines.component';
+import { SecurityComponent } from './components/security/security.component';
 import { ExportExcel } from './components/xlsx/xlsx.component';
 
 const appRoutes: Routes = [
@@ -44,6 +45,7 @@ const appRoutes: Routes = [
     {path: 'crear-maquina', component: CreateMachineComponent},
     {path: 'maquinas', component: MachinesComponent},
     {path: 'maquinas/:page', component: MachinesComponent},
+    {path: 'seguridad',component: SecurityComponent},
     {path: 'exportar-excel', component: ExportExcel}
 ];
 
