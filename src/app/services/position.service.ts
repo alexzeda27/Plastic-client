@@ -32,6 +32,14 @@ export class PositionService
     
         return this._http.get(this.url + 'consultar-puesto-paginados/' + page, {headers: headers});
     }
+
+    //Método para listar objeto sin paginar
+    getPositionOnly():Observable<any>
+    {
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+        return this._http.get(this.url + 'consultar-puestos', {headers:headers});
+    }
     
     //Método para listar un solo bloque
     getPosition(id): Observable<any>

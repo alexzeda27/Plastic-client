@@ -32,6 +32,13 @@ export class DepartmentService
     
         return this._http.get(this.url + 'consultar-departamento-paginados/' + page, {headers: headers});
     }
+
+    getDepartmentsOnly(): Observable<any>
+    {
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+        return this._http.get(this.url + 'consultar-departamentos', {headers:headers});
+    }
     
     //Método para listar un solo bloque
     getDepartment(id): Observable<any>

@@ -1,79 +1,96 @@
-<div class="col-lg-3 col-lg-offset-4">
+<div class="col-lg-10 col-lg-offset-1">
     <h1 class="h1-strong">{{title}}</h1>
-
-    <div class="alert alert-success" *ngIf="status == 'success'">
-        Registro guardado correctamente, <a [routerLink]="['/login']">Inicia sesión aquí</a>
-    </div>
-
-    <div class="alert alert-danger" *ngIf="status == 'error'">
-        Ocurrio un error al guardar el registro
-    </div>
 
     <form #registerForm="ngForm" (ngSubmit) = "onSubmit(registerForm)" class="col-lg-12">
         
-        <p>
-        <label class="labels">Número de nómina</label>
-        <input type="text" name="payroll" #payroll="ngModel" [(ngModel)]="employee.payroll" class="form-control" required/>
-        <span *ngIf="!payroll.valid && payroll.touched" pattern="^\d+$">
-            El número de nómina es obligatorio
-        </span>
-        </p>
+        <div class="form-row">
 
-        <p>
-        <label class="labels">Nombre</label>
-        <input type="text" name="name" #name="ngModel" [(ngModel)]="employee.name" class="form-control" required/>
-        <span *ngIf="!name.valid && name.touched" class="border-red">
-            El nombre es obligatorio
-        </span>
-        </p>
+            <div class="form-group col-md-4">
 
-        <p>
-        <label class="labels">Apellido Paterno</label>
-        <input type="text" name="surnameP" #surnameP="ngModel" [(ngModel)]="employee.surnameP" class="form-control" required/>
-        <span *ngIf="!surnameP.valid && surnameP.touched">
-            El apellido paterno es obligatorio
-        </span>
-        </p>
-
-        <p>
-        <label class="labels">Apellido Materno</label>
-        <input type="text" name="surnameM" #surnameM="ngModel" [(ngModel)]="employee.surnameM" class="form-control" required/>
-        <span *ngIf="!surnameM.valid && surnameM.touched">
-            El apellido materno es obligatorio
-        </span>
-        </p>
-
-        <p>
-        <label class="labels">Nombre de usuario</label>
-        <input type="text" name="username" #username="ngModel" [(ngModel)]="employee.username" class="form-control" required/>
-        <span *ngIf="!username.valid && username.touched">
-            El nombre de usuario es obligatorio
-        </span>
-        </p>
-
-        <p>
-        <label class="labels">Contraseña</label>
-        <input type="password" name="password" #password="ngModel" [(ngModel)]="employee.password" class="form-control" required/>
-        <span *ngIf="!password.valid && password.touched">
-            La contraseña es obligatoria
-        </span>
-        </p>
-
-
-        <!-- TO DO Agregar campos de puesto y departamento -->
-
-        <p>
-            <label class="labels">Departamento</label>
-            <select name="department" #department="ngModel" [(ngModel)]="employee.department" class="form-control" id="department" required>
-                <span *ngIf="!department.valid && department.touched">El departamento es obligatorio</span>
-                <option value="" disabled>Elige un departamento</option>
-                <option *ngFor="let department of departments" [value]="department._id">{{department.departmentName}}</option>
+                <label class="labels">* Número de nómina</label>
+                <input type="text" name="payroll" #payroll="ngModel" [(ngModel)]="employee.payroll" class="form-control border-red" placeholder="Ingresa un número de nómina" required/>
                 
-            </select>
-        </p>
+            </div>
+
+            <div class="form-group col-md-4">
+
+                <label class="labels">* Nombre</label>
+                <input type="text" name="name" #name="ngModel" [(ngModel)]="employee.name" class="form-control" placeholder="Ingresa un nombre" onkeyup="javascript: this.value = this.value.toUpperCase();" onkeydown="javascript: this.value = this.value.toUpperCase();" required/>
+
+            </div>
+
+            <div class="form-group col-md-4">
+
+                <label class="labels">* Apellido Paterno</label>
+                <input type="text" name="surnameP" #surnameP="ngModel" [(ngModel)]="employee.surnameP" class="form-control" placeholder="Ingresa un apellido paterno" onkeyup="javascript: this.value = this.value.toUpperCase();" onkeydown="javascript: this.value = this.value.toUpperCase();" required/>
+
+            </div>
+
+        </div>
+
+        <div class="form-row">
 
 
-        <input type="submit" value="{{title}}" class="btn btn-success" [disabled]="!registerForm.form.valid"/>
+            <div class="form-group col-md-4">
+
+                <label class="labels">* Apellido Materno</label>
+                <input type="text" name="surnameM" #surnameM="ngModel" [(ngModel)]="employee.surnameM" class="form-control" placeholder="Ingresa un apellido materno"  onkeyup="javascript: this.value = this.value.toUpperCase();" onkeydown="javascript: this.value = this.value.toUpperCase();" required/>
+ 
+            </div>
+
+            <div class="form-group col-md-4">
+
+                <label class="labels">* Nombre de usuario</label>
+                <input type="text" name="username" #username="ngModel" [(ngModel)]="employee.username" class="form-control" placeholder="Ingresa un nombre de usuario"  required/>
+
+            </div>
+
+            <div class="form-group col-md-4">
+
+                <label class="labels">* Contraseña</label>
+                <input type="password" name="password" #password="ngModel" [(ngModel)]="employee.password" class="form-control" placeholder="Ingresa una contraseña"  required/>
+
+            </div>
+
+        </div>
+
+        <div class="form-row">
+
+            <div class="form-group col-md-6">
+
+                <label class="labels">* Puesto</label>
+                <select name="positionName" #positionName="ngModel" [(ngModel)]="employee.position" class="form-control" required>
+                    <option disabled>ELIGE UN PUESTO PARA EL TRABAJADOR</option>
+                    <option *ngFor="let pos of position" [value]="pos._id">{{pos.positionName.toUpperCase()}}</option>
+                </select>
+    
+            </div>
+
+            <div class="form-group col-md-6">
+
+                <label class="labels">* Departamento</label>
+                <select name="departmentName" #departmentName="ngModel" [(ngModel)]="employee.department" class="form-control" required>
+                    <option *ngFor="let depa of department" [value]="depa._id">{{depa.departmentName.toUpperCase()}}</option>
+                </select>
+
+            </div>
+
+        </div>
+
+        <div class="form-row">
+
+            <div class="form-group col-md-12">
+
+                <p>
+                    <label class="labels">** Correo electronico Bocar</label>
+                    <input type="email" name="email" #email="ngModel" [(ngModel)]="employee.email" class="form-control" required/>
+                </p>
+
+                <input type="submit" value="{{title}}" class="btn btn-success" [disabled]="!registerForm.form.valid"/>
+
+            </div>
+
+        </div>
 
     </form>
 </div>

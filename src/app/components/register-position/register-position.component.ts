@@ -60,16 +60,23 @@ export class RegisterPositionComponent implements OnInit
                     console.log(response.position);
 
                     Swal.fire({
-                        icon: 'error',
-                        title: 'Opss..',
-                        text: 'Ocurrio un error'
+                        icon: 'success',
+                        title: '¡Correcto!',
+                        text: 'Registro guardado correctamente.',
+                        footer: '<a href="/puestos">Ver registros aquí</a>'
                     });
+
+                    
                     
                     form.reset();
                 }
                 else
                 {
-                    Swal.fire('Hello world');
+                    Swal.fire({
+                        icon: 'error',
+                        title: '¡Algo salió mal!',
+                        text: 'Ocurrió un error al guardar este registro.',
+                    });
                 }
             },
             error => {

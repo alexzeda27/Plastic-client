@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Employee } from '../../models/employee';
 import { EmployeeService } from '../../services/employee.service';
@@ -6,7 +7,6 @@ import { Department } from '../../models/department';
 import { DepartmentService } from '../../services/department.service';
 import { Position } from '../../models/position';
 import { PositionService } from '../../services/position.service';
-import { format } from 'url';
 
 @Component({
     selector: 'register',
@@ -21,6 +21,7 @@ export class RegisterComponent implements OnInit
     public department: Department[];
     public position: Position[];
     public status: string;
+    public saveDepartments;
     public departments;
     public id;
 
@@ -41,6 +42,9 @@ export class RegisterComponent implements OnInit
     ngOnInit()
     {
         console.log('Componente cargado...');
+
+        this.getDepartments();
+        this.getPositions();
     }
 
     onSubmit(form)
@@ -49,13 +53,24 @@ export class RegisterComponent implements OnInit
             response => {
                 if(response.employee && response.employee._id)
                 {
-                    console.log(response.employee.toLowerCase());
-                    this.status = 'success';
+                    console.log(response.employee);
+
+                    Swal.fire({
+                        icon: 'success',
+                        title: '¡Correcto!',
+                        text: 'Registro guardado correctamente.',
+                        footer: '<a href="/empleados">Ver registros aquí</a>'
+                    });
+                    
                     form.reset();
                 }
                 else
                 {
-                    this.status = 'error';
+                    Swal.fire({
+                        icon: 'error',
+                        title: '¡Algo salió mal!',
+                        text: 'Ocurrió un error al guardar este registro.',
+                    });
                 }
             },
             error => {
@@ -67,5 +82,53 @@ export class RegisterComponent implements OnInit
     redirection()
     {
         this._router.navigate(['/login']);
+    }
+
+    getDepartments()
+    {
+        this._departmentService.getDepartmentsOnly().subscribe(
+            response => {
+                if(response.departments)
+                {
+                    console.log(response.departments)
+                    this.department = response.departments;
+
+                    console.log(this.department);
+                }
+            },
+            error => {
+                var errorMessage = <any>error;
+                console.log(errorMessage);
+
+                if(errorMessage != null)
+                {
+                    this.status = 'error';
+                }
+            }
+        );
+    }
+
+    getPositions()
+    {
+        this._positionService.getPositionOnly().subscribe(
+            response => {
+                if(response.positions)
+                {
+                    console.log(response.positions);
+                    this.position = response.positions;
+
+                    console.log(this.position);
+                }
+            },
+            error => {
+                var errorMessage = <any>error;
+                console.log(errorMessage);
+
+                if(errorMessage != null)
+                {
+                    this.status = 'error';
+                }
+            }
+        )
     }
 }
