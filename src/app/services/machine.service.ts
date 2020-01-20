@@ -39,4 +39,12 @@ export class MachineService{
 
         return this._http.get(this.url + 'consultar-maquina' + id, {headers: headers});
     }
+
+    //Método para listar todas la maquinas sin paginar
+    getMachinesOnly(): Observable<any>
+    {
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+        return this._http.get(this.url + 'consultar-operadores', {headers: headers});
+    }
 }

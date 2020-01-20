@@ -1,0 +1,18 @@
+<div class="col-lg-3 col-lg-offset-4">
+    <h1 class="h1-strong">
+        {{title}}
+    </h1>
+
+    <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" class="col-lg-12">
+        <p>
+            <label class="labels">* Nombre del cliente</label>
+            <input type="text" name="customerName" #customerName="ngModel" [(ngModel)]="customer.customerName" class="form-control" placeholder="Ingresa el nombre del cliente" onkeyup="javascript: this.value = this.value.toUpperCase();" onkeydown="javascript: this.value = this.value.toUpperCase();" required/>
+            <span *ngIf="!customerName.valid && customerName.touched">
+                El nombre del cliente es obligatorio
+            </span>
+        </p>
+
+        <input type="submit" value="{{title}}" class="btn btn-success" [disabled]="!registerForm.form.valid"/>
+    </form>
+
+</div>

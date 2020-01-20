@@ -1,0 +1,30 @@
+<div class="col-lg-6 col-lg-offset-3">
+    <h1 class="h1-strong">
+        {{title}}
+    </h1>
+
+    <div class="register-mobility">
+        <div *ngFor="let register of register" class="item-registerMobility">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="content">
+                        <p>
+                            REGISTRO
+                        </p>
+                        <p>
+                            Mes: <span>{{register.month}}</span>
+                        </p>
+                        <p>
+                            Semana: <span>{{register.week}}</span>
+                        </p>
+                        <p>
+                            Día: <span>{{register.day}}</span>
+                        </p>
+                    </div>
+
+                    <a class="btn btn-success">{{button}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    

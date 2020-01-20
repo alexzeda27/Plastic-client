@@ -1,0 +1,41 @@
+<div class="col-lg-4 col-lg-offset-4">
+    <h1 class="h1-strong">
+        {{title}}
+    </h1>
+
+    <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" class="col-lg-12">
+
+        <p>
+            <label class="labels">* Nombre del Producto</label>
+            <input type="text" name="nameProduct" #nameProduct="ngModel" [(ngModel)]="product.nameProduct" class="form-control" placeholder="Ingresa el nombre del producto" required/>
+            <span *ngIf="!nameProduct.valid && nameProduct.touched">
+                El nombre del producto es obligatorio
+            </span>
+        </p>
+
+        <p>
+            <label class="labels">* Número de serie</label>
+            <input type="text" name="serialNumber" #serialNumber="ngModel" [(ngModel)]="product.serialNumber" class="form-control" placeholder="Ingresa el número de serie" required/>
+            <span *ngIf="!serialNumber.valid && serialNumber.touched">
+                El número de serie es obligatorio
+            </span>
+        </p>
+
+        <p>
+            <label class="labels">* Versión</label>
+            <input type="text" name="version" #version="ngModel" [(ngModel)]="product.version" class="form-control" placeholder="Ingresa la versión del producto" required/>
+            <span *ngIf="!version.valid && version.touched">
+                El número de serie es obligatorio
+            </span>
+        </p>
+
+        <p>
+            <label class="labels">* Cliente</label>
+                <select name="customerName" #customerName="ngModel" [(ngModel)]="product.customer" class="form-control" required>
+                    <option *ngFor="let cust of customer" [value]="cust._id">{{cust.customerName.toUpperCase()}}</option>
+                </select>
+        </p>
+
+        <input type="submit" value="{{title}}" class="btn btn-success" [disabled]="!registerForm.form.valid"/>
+    </form>
+</div>

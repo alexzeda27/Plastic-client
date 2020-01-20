@@ -2,31 +2,31 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { GLOBAL } from './global';
-import { Register } from '../models/register';
+import { Operator } from '../models/operator';
 
 @Injectable()
-export class RegisterService
+export class OperatorService
 {
-    public url: string;
-
+    public url;
+    
     constructor(public _http: HttpClient)
     {
         this.url = GLOBAL.url;
     }
 
-    //Método para agregra registros
-    register(register: Register): Observable<any>
+    //Método para registrar departamentos
+    register(operator: Operator): Observable<any>
     {
-        let params = JSON.stringify(register);
+        let params = JSON.stringify(operator);
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-        return this._http.post(this.url + 'crear-registro', params, {headers: headers});
+        return this._http.put(this.url + 'actualizar-operador' + operator._id, params, {headers:headers});
     }
 
-    getRegisters(): Observable<any>
+    getOperators(): Observable<any>
     {
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-        return this._http.get(this.url + '/consultar-registros', {headers: headers});
+        return this._http.get(this.url + '/consultar-operadores', {headers: headers});
     }
 }

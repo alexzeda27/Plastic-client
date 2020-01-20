@@ -3,22 +3,21 @@
         {{title}}
     </h1>
 
-    <div class="alert alert-success" *ngIf="status == 'success'">
-        Registro guardado correctamente, <a [routerLink]="['/maquinas']">Ver maquinas aquí</a>
-    </div>
-
-    <div class="alert alert-danger" *ngIf="status == 'error'">
-        Ocurrio un error al guardar el registro
-    </div>
-
     <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" class="col-lg-12">
 
         <p>
-            <label class="labels">Número de maquina</label>
-            <input type="text" name="numberMachine" #numberMachine="ngModel" [(ngModel)]="machine.numberMachine" class="form-control" required/>
+            <label class="labels">* Número de máquina</label>
+            <input type="text" name="numberMachine" #numberMachine="ngModel" [(ngModel)]="machine.numberMachine" class="form-control" placeholder="Ingrese un número de maquina" required/>
             <span *ngIf="!numberMachine.valid && numberMachine.touched">
                 El número de maquina es obligatorio
             </span>
+        </p>
+
+        <p>
+            <label class="labels">* Bloque</label>
+                <select name="numberSquare" #numberSquare="ngModel" [(ngModel)]="machine.square" class="form-control" required>
+                    <option *ngFor="let squ of square" [value]="squ._id">{{squ.numberSquare.toUpperCase()}} - {{squ.department.departmentName.toUpperCase()}}</option>
+                </select>
         </p>
 
         <input type="submit" value="{{title}}" class="btn btn-success" [disabled]="!registerForm.form.valid"/>

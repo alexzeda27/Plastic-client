@@ -20,7 +20,14 @@ import { DepartmentsComponent } from './components/departments/departments.compo
 import { CreateMachineComponent } from './components/create-machine/create-machine.component';
 import { MachinesComponent } from './components/machines/machines.component';
 import { SecurityComponent } from './components/security/security.component';
+
 import { ExportExcel } from './components/xlsx/xlsx.component';
+import { CreateRegisterMobilityComponent } from './components/create-register-mobility/create-register-mobility.component';
+import { RegisterMobilityComponent } from './components/registers-mobility/registers-mobility.component';
+import { CreateCustomerComponent } from './components/create-customer/create-customer.component';
+import { CreateProductComponent } from './components/create-product/create-product.component';
+import { CreateOperatorComponent } from './components/create-operator/create-operator.component';
+import { OperatorsComponent } from './components/operators/operators.component';
 
 const appRoutes: Routes = [
     {path: '', component: HomeComponent},
@@ -48,7 +55,14 @@ const appRoutes: Routes = [
     {path: 'maquinas', component: MachinesComponent},
     {path: 'maquinas/:page', component: MachinesComponent},
     {path: 'seguridad',component: SecurityComponent},
-    {path: 'exportar-excel', component: ExportExcel}
+
+    {path: 'exportar-excel', component: ExportExcel},
+    {path: 'crear-registro', component: CreateRegisterMobilityComponent},
+    {path: 'registros-movilidad', component: RegisterMobilityComponent},
+    {path: 'crear-cliente', component: CreateCustomerComponent},
+    {path: 'crear-producto', component: CreateProductComponent},
+    {path: 'crear-operador', component: CreateOperatorComponent},
+    {path: 'operadores', component: OperatorsComponent}
 ];
 
 export const appRoutingProviders: any[] = [];

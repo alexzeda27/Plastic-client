@@ -1,0 +1,26 @@
+<div class="col-lg-8 col-lg-offset-2">
+    <h1 class="h1-strong">
+        {{title}}
+    </h1>
+
+    <div class="operator">
+        <div *ngFor="let operator of operator" class="item-operator">
+            <a [routerLink]="['/operadores']" (click)="submit()">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="content">
+                            <p>
+                                OPERADOR - <span>{{operator.employee.name.toUpperCase()}}</span>
+                            </p>
+                            <p>
+                                DEPARTAMENTO - <span>{{operator.employee.department.departmentName}}</span>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+</div>

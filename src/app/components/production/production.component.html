@@ -30,14 +30,12 @@
 
       <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
-          <img src="assets/add-products.jpeg" alt="Productos">
+          <img src="assets/add-customers.jpg" alt="Clientes">
           <div class="caption">
-            <h3>Productos</h3>
-            <p>Da de alta, consulta, actualiza o elimina productos de las maquinas de el bloque correspondiente.</p>
-            <a [routerLink]="['/registrar-bloque']" class="btn btn-success" role="button">Registrar Producto</a><br>
-            <a [routerLink]="['/consultar-bloque']" class="btn btn-info" role="button">Consultar Producto</a><br>
-            <a [routerLink]="['/actualizar-bloque']" class="btn btn-warning" role="button">Actualizar Producto</a><br>
-            <a [routerLink]="['/eliminar-bloque']" class="btn btn-danger" role="button">Eliminar Producto</a><br>
+            <h3>Clientes</h3>
+            <p>Da de alta, consulta, actualiza o elimina clientes para tus productos.</p>
+            <a [routerLink]="['/crear-cliente']" class="btn btn-success" role="button">Registrar Cliente</a><br>
+            <a [routerLink]="['/clientes']" class="btn btn-info" role="button">Ver Clientes</a><br>
           </div>
         </div>
       </div>
@@ -46,15 +44,26 @@
         <div class="thumbnail">
           <img src="assets/add-products.jpeg" alt="Productos">
           <div class="caption">
-            <h3>Operadores</h3>
-            <p>Da de alta, consulta, actualiza o elimina operadores y asignalos a un bloque y maquina correspondiente.</p>
-            <a [routerLink]="['/registrar-bloque']" class="btn btn-success" role="button">Registrar Operador</a><br>
-            <a [routerLink]="['/consultar-bloque']" class="btn btn-info" role="button">Consultar Operador</a><br>
-            <a [routerLink]="['/actualizar-bloque']" class="btn btn-warning" role="button">Actualizar Operador</a><br>
-            <a [routerLink]="['/eliminar-bloque']" class="btn btn-danger" role="button">Eliminar Operador</a><br>
+            <h3>Productos</h3>
+            <p>Da de alta, consulta, actualiza o elimina productos de las maquinas de el bloque correspondiente.</p>
+            <a [routerLink]="['/crear-producto']" class="btn btn-success" role="button">Registrar Producto</a><br>
+            <a [routerLink]="['/productos']" class="btn btn-info" role="button">Ver Productos</a><br>
           </div>
         </div>
       </div>
+
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <img src="assets/add-operators.jpg" alt="Productos">
+          <div class="caption">
+            <h3>Operadores</h3>
+            <p>Da de alta, consulta, actualiza o elimina operadores y asignalos a un bloque y maquina correspondiente.</p>
+            <a [routerLink]="['/actualizar-operador']" class="btn btn-success" role="button">Registrar Operador</a><br>
+            <a [routerLink]="['/operadores']" class="btn btn-info" role="button">Ver Operadores</a><br>
+          </div>
+        </div>
+      </div>
+
     </div>
 
 </div>

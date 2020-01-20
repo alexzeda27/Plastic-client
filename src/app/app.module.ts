@@ -25,7 +25,14 @@ import { DepartmentsComponent } from './components/departments/departments.compo
 import { CreateMachineComponent } from './components/create-machine/create-machine.component';
 import { MachinesComponent } from './components/machines/machines.component';
 import { SecurityComponent } from './components/security/security.component';
+
 import { ExportExcel } from './components/xlsx/xlsx.component';
+import { CreateRegisterMobilityComponent } from './components/create-register-mobility/create-register-mobility.component';
+import { RegisterMobilityComponent } from './components/registers-mobility/registers-mobility.component';
+import { CreateCustomerComponent } from './components/create-customer/create-customer.component';
+import { CreateProductComponent } from './components/create-product/create-product.component';
+import { CreateOperatorComponent } from './components/create-operator/create-operator.component';
+import { OperatorsComponent } from './components/operators/operators.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +55,14 @@ import { ExportExcel } from './components/xlsx/xlsx.component';
     CreateMachineComponent,
     MachinesComponent,
     SecurityComponent,
-    ExportExcel
+
+    ExportExcel,
+    CreateRegisterMobilityComponent,
+    RegisterMobilityComponent,
+    CreateCustomerComponent,
+    CreateProductComponent,
+    CreateOperatorComponent,
+    OperatorsComponent
   ],
   imports: [
     BrowserModule,

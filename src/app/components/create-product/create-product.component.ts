@@ -1,21 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Machine } from '../../models/machine';
-import { MachineService } from '../../services/machine.service';
-import { Square } from '../../models/square';
-import { SquareService } from '../../services/square.service';
+import { Product } from '../../models/product';
+import { ProductService } from '../../services/product.service';
+import { Customer } from '../../models/customer';
+import { CustomerService } from '../../services/customer.service';
 
 @Component({
-    selector: 'create-machine',
-    templateUrl: './create-machine.component.html',
-    providers: [MachineService, SquareService]
+    selector: 'create-product',
+    templateUrl: './create-product.component.html',
+    providers: [ProductService, CustomerService]
 })
-export class CreateMachineComponent implements OnInit
+export class CreateProductComponent implements OnInit
 {
     public title: string;
-    public machine: Machine;
-    public square: Square[];
+    public product: Product;
+    public customer: Customer[];
     public identity;
     public token;
     public status: string;
@@ -24,34 +24,37 @@ export class CreateMachineComponent implements OnInit
     constructor(
         private route: ActivatedRoute,
         private _router: Router,
-        private _machineService: MachineService,
-        private _squareService: SquareService
+        private _productService: ProductService,
+        private _customerService: CustomerService
     )
     {
-        this.title = "Crear Maquina";
-        this.machine = new Machine("", "", "");
+        this.title = "Crear producto";
+        this.product = new Product("", "", "", "", "");
     }
 
     ngOnInit()
     {
         console.log("Component cargado..");
-        this.getSquares();
+        this.getCustomers();
     }
 
     onSubmit(form)
     {
-        console.log(this.machine);
-        this._machineService.create(this.machine).subscribe(
+        this._productService.register(this.product).subscribe(
             response => {
-                if(response.machine && response.machine._id)
+                if(response.product && response.product._id)
                 {
-                    console.log(response.machine);
+                    console.log(response.product);
+
                     Swal.fire({
                         icon: 'success',
                         title: '¡Correcto!',
                         text: 'Registro guardado correctamente.',
-                        footer: '<a href="/maquinas">Ver registros aquí</a>'
+                        footer: '<a href="/productos">Ver registros aquí</a>'
                     });
+
+                    
+                    
                     form.reset();
                 }
                 else
@@ -62,23 +65,23 @@ export class CreateMachineComponent implements OnInit
                         text: 'Ocurrió un error al guardar este registro.',
                     });
                 }
-            },      
+            },
             error => {
                 console.log(<any>error);
-            }            
+            }
         );
     }
 
-    getSquares()
+    getCustomers()
     {
-        this._squareService.getSquares().subscribe(
+        this._customerService.getCustomers().subscribe(
             response => {
-                if(response.squares)
+                if(response.customers)
                 {
-                    console.log(response.squares);
-                    this.square = response.squares;
+                    console.log(response.customers);
+                    this.customer = response.customers;
 
-                    console.log(this.square);
+                    console.log(this.customer);
                 }
             },
             error => {
@@ -93,3 +96,4 @@ export class CreateMachineComponent implements OnInit
         )
     }
 }
+

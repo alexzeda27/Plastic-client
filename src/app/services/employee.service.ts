@@ -107,6 +107,14 @@ export class EmployeeService{
         return this._http.get(this.url + 'consultar-empleado-paginados/' + page, {headers: headers});
     }
 
+    //Método para listar todos los empleados
+    getEmployeesOnly(): Observable<any>
+    {
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+        return this._http.get(this.url + 'consultar-empleados', {headers: headers});
+    }
+
     //Cargar lista de empleado individual
     getEmployee(payroll): Observable<any>
     {

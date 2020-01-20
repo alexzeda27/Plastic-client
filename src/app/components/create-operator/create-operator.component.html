@@ -1,0 +1,24 @@
+<div class="col-lg-4 col-lg-offset-4">
+    <h1 class="h1-strong">
+        {{title}}
+    </h1>
+
+    <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" class="col-lg-12">
+
+        <p>
+            <label class="labels">* Empleado</label>
+                <select name="name" #name="ngModel" [(ngModel)]="operator.employee" class="form-control" required>
+                    <option *ngFor="let emplo of employee" [value]="emplo._id">{{emplo.name.toUpperCase()}}</option>
+                </select>
+        </p>
+
+        <p>
+            <label class="labels">* Bloque</label>
+                <select name="numberSquare" #numberSquare="ngModel" [(ngModel)]="operator.square" class="form-control" required>
+                    <option *ngFor="let squ of square" [value]="squ._id">{{squ.numberSquare.toUpperCase()}}</option>
+                </select>
+        </p>
+
+        <input type="submit" value="{{title}}" class="btn btn-success" [disabled]="!registerForm.form.valid"/>
+    </form>
+</div>
