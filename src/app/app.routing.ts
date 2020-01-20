@@ -12,6 +12,7 @@ import { RegisterPositionComponent } from './components/register-position/regist
 import { ProductionComponent } from './components/production/production.component';
 import { MobilityComponent } from './components/mobility/mobility.component';
 import { CreateSquareComponent } from './components/create-square/create-square.component';
+import { SquareDepartmentsComponent } from './components/squares-department/squares-department.component';
 import { SquaresComponent } from './components/squares/squares.component';
 import { EmployeeEditComponent } from './components/employee-edit/employee-edit.component';
 import { EmployeesComponent } from './components/employees/employees.component';
@@ -34,6 +35,7 @@ const appRoutes: Routes = [
     {path: 'produccion', component: ProductionComponent},
     {path: 'movilidad', component: MobilityComponent},
     {path: 'crear-bloque', component: CreateSquareComponent},
+    {path: 'bloques-departamento', component: SquareDepartmentsComponent},
     {path: 'bloques', component: SquaresComponent},
     {path: 'bloques/:page', component: SquaresComponent},
     {path: 'actualizar-empleado', component: EmployeeEditComponent},

@@ -3,6 +3,21 @@
         {{title}}
     </h1>
 
+    <div class="square-department">
+        <div *ngFor="let department of departments" class="item-squareDepartment">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="content">
+                        <p>
+                            BLOQUES - <span>{{department.departmentName}}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
     <div class="squares">
         <div *ngFor="let square of squares" class="item-square">
             <div class="panel panel-default">

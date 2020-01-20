@@ -1,0 +1,23 @@
+<div class="col-lg-8 col-lg-offset-2">
+    <h1 class="h1-strong">
+        {{title}}
+    </h1>
+
+    <div class="square-department">
+        <div *ngFor="let department of department" class="item-squareDepartment">
+            <a [routerLink]="['/bloques']" (click)="submit()">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="content">
+                            <p>
+                                BLOQUES - <span>{{department.departmentName}}</span>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+</div>

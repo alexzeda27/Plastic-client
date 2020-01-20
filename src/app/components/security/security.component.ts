@@ -40,25 +40,4 @@ export class SecurityComponent implements OnInit
     {
         console.log("Componente Cargado");
     }
-
-    generarPDF(){
-
-	    html2canvas(document.getElementById('contenido'), {
-
-        // Opciones
-        allowTaint: true,
-        useCORS: false,
-        // Calidad del PDF
-
-        scale: 1
-
-      }).then(function(canvas) {
-
-            var doc = new jsPDF;
-            doc.setFontSize(40);
-            doc.text(40, 22, "Ficha Safe Start");
-            doc.save('FichaSafeStart.pdf');
-            
-	    });
-  	}
 }
