@@ -12,6 +12,7 @@ export class EmployeeService{
     public identity;
     public identityEmployee;
     public token;
+    public payroll;
 
     constructor(public _http: HttpClient)
     {
@@ -128,5 +129,13 @@ export class EmployeeService{
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
 
         return this._http.put(this.url + 'eliminar-imagen/' + payroll + '/' + imageFile, {headers: headers});
+    }
+
+    //Método para eliminar empleado
+    removeEmployee(payroll): Observable<any>
+    {
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+        return this._http.delete(this.url + 'eliminar-empleado/' + payroll, {headers: headers});
     }
 }

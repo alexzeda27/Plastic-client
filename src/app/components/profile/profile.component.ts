@@ -1,4 +1,5 @@
 import { Component, OnInit} from '@angular/core';
+import Swal from 'sweetalert2';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Employee } from '../../models/employee';
 import { EmployeeService } from '../../services/employee.service';
@@ -80,5 +81,55 @@ export class ProfileComponent implements OnInit
                 this._router.navigate(['/perfil', this.identity.payroll]);
             }
         );
+    }
+
+    removeEmployee(payroll)
+    {
+        console.log(this.payroll);
+
+        Swal.fire({
+            title: '¿Estas seguro?',
+            text: "Esta operación no se puede revertit",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, eliminar'
+          }).then((result) => {
+            if (result.value) {
+
+                this._employeeService.removeEmployee(payroll).subscribe(
+                    response => {
+                        if(response.employee.payroll)
+                        {
+                            Swal.fire(
+                                '¡Eliminado!',
+                                'El registro fue eliminado con exito.',
+                                'success'
+                              )
+
+                            this._router.navigate(['/empleados']);
+                        }
+                        else
+                        {
+                            Swal.fire({
+                                icon: 'error',
+                                title: '¡Algo salió mal!',
+                                text: 'Ocurrió un error al guardar este registro.',
+                            });    
+                        }
+                    },
+                    error => {
+                        var errorMessage = <any>error;
+                        console.log(errorMessage);
+        
+                        if(errorMessage != null)
+                        {
+                            this.status = 'error';
+                        } 
+                    }
+                )              
+            }
+        })
     }
 }
