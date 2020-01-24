@@ -28,6 +28,8 @@ import { CreateCustomerComponent } from './components/create-customer/create-cus
 import { CreateProductComponent } from './components/create-product/create-product.component';
 import { CreateOperatorComponent } from './components/create-operator/create-operator.component';
 import { OperatorsComponent } from './components/operators/operators.component';
+import { CreateMobilityComponent } from './components/create-mobility/create-mobility.component';
+import { MobilityDepartmentComponent } from './components/mobility-department/mobility-department.component';
 
 const appRoutes: Routes = [
     {path: '', component: HomeComponent},
@@ -62,7 +64,10 @@ const appRoutes: Routes = [
     {path: 'crear-cliente', component: CreateCustomerComponent},
     {path: 'crear-producto', component: CreateProductComponent},
     {path: 'crear-operador', component: CreateOperatorComponent},
-    {path: 'operadores', component: OperatorsComponent}
+    {path: 'operadores', component: OperatorsComponent},
+    {path: 'crear-movilidad', component: CreateMobilityComponent},
+    {path: 'movilidad-departamento', component: MobilityDepartmentComponent},
+    {path: 'movilidad-departamento/:id', component: MobilityDepartmentComponent}
 ];
 
 export const appRoutingProviders: any[] = [];

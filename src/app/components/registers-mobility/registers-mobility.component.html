@@ -7,7 +7,7 @@
         <div *ngFor="let register of register" class="item-registerMobility">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <div class="content">
+                    <div class="content pull-left">
                         <p>
                             REGISTRO
                         </p>
@@ -22,7 +22,20 @@
                         </p>
                     </div>
 
-                    <a class="btn btn-success">{{button}}</a>
+                    <!-- Buttons -->
+                    <div class="buttons-paginates">
+                        <div class="pull-right">
+                            <a [routerLink]="['/movilidad-departamento']" class="btn btn-success">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                {{button}}
+                            </a>
+
+                            <a class="btn btn-info">
+                                <span class="glyphicon glyphicon-trash"></span>
+                                {{button_info}}
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

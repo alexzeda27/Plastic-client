@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Register } from '../../models/register';
 import { RegisterService } from '../../services/register.service';
-import { Moment } from 'moment';
+import * as moment from 'moment';
 import { GLOBAL } from '../../services/global';
 
 @Component({
@@ -14,8 +14,7 @@ export class RegisterMobilityComponent implements OnInit
 {
     public title: string;
     public button: string;
-    public button_update: string;
-    public button_delete: string;
+    public button_info: string;
     public register: Register[];
     public registers;
     public identity;
@@ -31,6 +30,7 @@ export class RegisterMobilityComponent implements OnInit
     {
         this.title = "Registros";
         this.button = "Crear Movilidad"
+        this.button_info = "Consultar Movilidad"
         this.url = GLOBAL.url;
         this.registers = this._registerService.getRegisters();
     }
@@ -40,6 +40,8 @@ export class RegisterMobilityComponent implements OnInit
         console.log("Componente cargado...");
         
         this.getRegisters();
+
+        
     }
 
     getRegisters()

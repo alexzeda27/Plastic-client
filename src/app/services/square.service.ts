@@ -32,12 +32,20 @@ export class SquareService{
         return this._http.get(this.url + 'consultar-bloque-paginados/' + page, {headers: headers});
     }
 
+    //Méotodo para listar bloques sin paginar
+    getSquaresOnly(): Observable<any>
+    {
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+        return this._http.get(this.url + 'consultar-bloques', {headers: headers});
+    }
+
     //Método para listar un solo bloque
     getSquare(id): Observable<any>
     {
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-        return this._http.get(this.url + 'consultar-bloque' + id, {headers: headers});
+        return this._http.get(this.url + 'consultar-bloque/' + id, {headers: headers});
     }
 
     //Método para actualizar bloques

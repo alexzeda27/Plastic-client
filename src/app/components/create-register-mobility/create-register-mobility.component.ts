@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Register } from '../../models/register';
 import { RegisterService } from '../../services/register.service';
+import * as moment from 'moment';
 
 @Component({
     selector: 'create-register-mobility',

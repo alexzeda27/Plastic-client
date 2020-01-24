@@ -33,6 +33,8 @@ import { CreateCustomerComponent } from './components/create-customer/create-cus
 import { CreateProductComponent } from './components/create-product/create-product.component';
 import { CreateOperatorComponent } from './components/create-operator/create-operator.component';
 import { OperatorsComponent } from './components/operators/operators.component';
+import { CreateMobilityComponent } from './components/create-mobility/create-mobility.component';
+import { MobilityDepartmentComponent } from './components/mobility-department/mobility-department.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +64,9 @@ import { OperatorsComponent } from './components/operators/operators.component';
     CreateCustomerComponent,
     CreateProductComponent,
     CreateOperatorComponent,
-    OperatorsComponent
+    OperatorsComponent,
+    CreateMobilityComponent,
+    MobilityDepartmentComponent
   ],
   imports: [
     BrowserModule,
