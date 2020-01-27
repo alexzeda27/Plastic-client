@@ -1,4 +1,4 @@
-<div class="col-lg-10">
+<div class="col-lg-6 col-lg-offset-3">
     <h1 class="h1-strong">{{title}}</h1>
 
     <div class="square-department">
@@ -15,7 +15,7 @@
                         <!-- Buttons -->
                         <div class="buttons-paginates">
                             <div class="pull-right">
-                                <a [routerLink]="['/movilidad-departamento', department._id]" class="btn btn-success" (click)="getSquares()">
+                                <a [routerLink]="['/movilidad-nuevo']" class="btn btn-success" (click)="getSquares()">
                                     <span class="glyphicon glyphicon-ok"></span>
                                     {{button}}
                                 </a>

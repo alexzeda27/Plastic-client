@@ -12,7 +12,7 @@
                         <img src="{{ url + 'consultar-imagen/' + employee.image}}" *ngIf="employee.image" alt="Imágen de {{employee.name}}"/>
                         <img src="assets/default.png" *ngIf="!employee.image" alt="Imágen por default">
                     </div>
-                    <div class="content content_employee pull-left" *ngIf="employee">
+                    <div class="content content_employee pull-left" *ngIf="employee.department && employee.position">
                         
                         <p>
                             Nombre del empleado: <span> {{employee.name + ' ' + employee.surnameP + ' ' + employee.surnameM}} </span>
@@ -25,8 +25,21 @@
                         </p>
                     </div>
 
+                    <div class="content content_employee pull-left" *ngIf="!employee.department && !employee.position">
+                        
+                        <p>
+                            Nombre del empleado: <span> {{employee.name + ' ' + employee.surnameP + ' ' + employee.surnameM}} </span>
+                        </p>
+                        <p>
+                            Departamento del empleado: <span> No content </span>
+                        </p>
+                        <p>
+                            Puesto del empleado: <span> No content </span>
+                        </p>
+                    </div>
+
                     <!-- Buttons -->
-                    <div class="buttons-paginates buttons-employee">
+                    <div class="buttons-paginates buttons-employee" *ngIf="employee.department && employee.position">
                         <div class="pull-right">
                             <a [routerLink]="['/perfil', employee.payroll]" class="btn btn-info" (click)="getEmployee(employee.payroll)">
                                 <span class="glyphicon glyphicon-check"></span>

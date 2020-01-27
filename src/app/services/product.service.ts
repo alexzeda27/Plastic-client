@@ -23,5 +23,12 @@ export class ProductService
         return this._http.post(this.url + 'crear-producto', params, {headers:headers});
     }
 
+    getProductsOnly(): Observable<any>
+    {
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+        return this._http.get(this.url + 'consultar-productos', {headers: headers});
+    }
+
 }
 

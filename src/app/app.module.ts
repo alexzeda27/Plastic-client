@@ -35,6 +35,7 @@ import { CreateOperatorComponent } from './components/create-operator/create-ope
 import { OperatorsComponent } from './components/operators/operators.component';
 import { CreateMobilityComponent } from './components/create-mobility/create-mobility.component';
 import { MobilityDepartmentComponent } from './components/mobility-department/mobility-department.component';
+import { MobilityRegisterComponent } from './components/mobility-register/mobility-register.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { MobilityDepartmentComponent } from './components/mobility-department/mo
     CreateOperatorComponent,
     OperatorsComponent,
     CreateMobilityComponent,
-    MobilityDepartmentComponent
+    MobilityDepartmentComponent,
+    MobilityRegisterComponent
   ],
   imports: [
     BrowserModule,

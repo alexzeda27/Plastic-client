@@ -30,6 +30,7 @@ import { CreateOperatorComponent } from './components/create-operator/create-ope
 import { OperatorsComponent } from './components/operators/operators.component';
 import { CreateMobilityComponent } from './components/create-mobility/create-mobility.component';
 import { MobilityDepartmentComponent } from './components/mobility-department/mobility-department.component';
+import { MobilityRegisterComponent } from './components/mobility-register/mobility-register.component';
 
 const appRoutes: Routes = [
     {path: '', component: HomeComponent},
@@ -67,7 +68,8 @@ const appRoutes: Routes = [
     {path: 'operadores', component: OperatorsComponent},
     {path: 'crear-movilidad', component: CreateMobilityComponent},
     {path: 'movilidad-departamento', component: MobilityDepartmentComponent},
-    {path: 'movilidad-departamento/:id', component: MobilityDepartmentComponent}
+    {path: 'movilidad-departamento/:id', component: MobilityDepartmentComponent},
+    {path: 'movilidad-nuevo', component: MobilityRegisterComponent}
 ];
 
 export const appRoutingProviders: any[] = [];

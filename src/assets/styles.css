@@ -369,6 +369,14 @@ img
         font-weight: bold;
         display: block;
     }
+    .buttons-paginates button
+    {
+        max-width: 100%;
+        text-align: center;
+        margin-bottom: 15px;
+        font-weight: bold;
+        display: block;
+    }
 
     .buttons-paginates a:last-child
     {

@@ -45,6 +45,6 @@ export class MachineService{
     {
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-        return this._http.get(this.url + 'consultar-operadores', {headers: headers});
+        return this._http.get(this.url + 'consultar-maquinas', {headers: headers});
     }
 }
