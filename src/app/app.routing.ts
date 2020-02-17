@@ -10,7 +10,6 @@ import { HumanResourcesComponent } from './components/human-resources/human-reso
 import { RegisterDepartmentComponent } from './components/register-department/register-department.component';
 import { RegisterPositionComponent } from './components/register-position/register-position.component';
 import { ProductionComponent } from './components/production/production.component';
-import { MobilityComponent } from './components/mobility/mobility.component';
 import { CreateSquareComponent } from './components/create-square/create-square.component';
 import { SquareDepartmentsComponent } from './components/squares-department/squares-department.component';
 import { SquaresComponent } from './components/squares/squares.component';
@@ -20,17 +19,14 @@ import { DepartmentsComponent } from './components/departments/departments.compo
 import { CreateMachineComponent } from './components/create-machine/create-machine.component';
 import { MachinesComponent } from './components/machines/machines.component';
 import { SecurityComponent } from './components/security/security.component';
+import { MovilidadComponent } from './components/movilidad/movilidad.component';
+import { CreateMobilityDateComponent } from './components/crear-movilidad/crear-movilidad.component';
 
 import { ExportExcel } from './components/xlsx/xlsx.component';
-import { CreateRegisterMobilityComponent } from './components/create-register-mobility/create-register-mobility.component';
-import { RegisterMobilityComponent } from './components/registers-mobility/registers-mobility.component';
 import { CreateCustomerComponent } from './components/create-customer/create-customer.component';
 import { CreateProductComponent } from './components/create-product/create-product.component';
 import { CreateOperatorComponent } from './components/create-operator/create-operator.component';
 import { OperatorsComponent } from './components/operators/operators.component';
-import { CreateMobilityComponent } from './components/create-mobility/create-mobility.component';
-import { MobilityDepartmentComponent } from './components/mobility-department/mobility-department.component';
-import { MobilityRegisterComponent } from './components/mobility-register/mobility-register.component';
 
 const appRoutes: Routes = [
     {path: '', component: HomeComponent},
@@ -43,7 +39,6 @@ const appRoutes: Routes = [
     {path: 'registrar-departamento', component: RegisterDepartmentComponent},
     {path: 'registrar-puesto', component: RegisterPositionComponent},
     {path: 'produccion', component: ProductionComponent},
-    {path: 'movilidad', component: MobilityComponent},
     {path: 'crear-bloque', component: CreateSquareComponent},
     {path: 'bloques-departamento', component: SquareDepartmentsComponent},
     {path: 'bloques', component: SquaresComponent},
@@ -58,18 +53,14 @@ const appRoutes: Routes = [
     {path: 'maquinas', component: MachinesComponent},
     {path: 'maquinas/:page', component: MachinesComponent},
     {path: 'seguridad',component: SecurityComponent},
+    {path: 'movilidad',component: MovilidadComponent},
+    {path: 'crear-fecha-movilidad', component: CreateMobilityDateComponent},
 
     {path: 'exportar-excel', component: ExportExcel},
-    {path: 'crear-registro', component: CreateRegisterMobilityComponent},
-    {path: 'registros-movilidad', component: RegisterMobilityComponent},
     {path: 'crear-cliente', component: CreateCustomerComponent},
     {path: 'crear-producto', component: CreateProductComponent},
     {path: 'crear-operador', component: CreateOperatorComponent},
-    {path: 'operadores', component: OperatorsComponent},
-    {path: 'crear-movilidad', component: CreateMobilityComponent},
-    {path: 'movilidad-departamento', component: MobilityDepartmentComponent},
-    {path: 'movilidad-departamento/:id', component: MobilityDepartmentComponent},
-    {path: 'movilidad-nuevo', component: MobilityRegisterComponent}
+    {path: 'operadores', component: OperatorsComponent}
 ];
 
 export const appRoutingProviders: any[] = [];
