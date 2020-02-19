@@ -28,7 +28,7 @@ export class CreateMobilityDateComponent implements OnInit
     constructor(
         private route: ActivatedRoute,
         private _router: Router,
-        private _mobilityService: MobilityDateService,
+        private _mobilityDateService: MobilityDateService,
         private _monthService: MonthService,
         private _weekService: WeekService,
         private _dayService: DayService
@@ -43,40 +43,39 @@ export class CreateMobilityDateComponent implements OnInit
     {
         console.log("Component cargado..");
         this.getMonths();
-        console.log(this.getMonths());
+        this.getWeeks(),
+        this.getDays();
     }
 
     onSubmit(form)
     {
-        this._mobilityService.register(this.mobilityDate).subscribe(
+        console.log(this.mobilityDate);
+        this._mobilityDateService.register(this.mobilityDate).subscribe(
             response => {
                 if(response.mobilityDate && response.mobilityDate._id)
                 {
                     console.log(response.mobilityDate);
-
                     Swal.fire({
                         icon: 'success',
                         title: '¡Correcto!',
                         text: 'Registro guardado correctamente.',
-                        footer: '<a href="/puestos">Ver registros aquí</a>'
+                        footer: '<a href="/fechas-movilidad">Ver registros aquí</a>'
                     });
-
-                    
-                    
                     form.reset();
                 }
                 else
                 {
                     Swal.fire({
-                        icon: 'error',
-                        title: '¡Algo salió mal!',
-                        text: 'Ocurrió un error al guardar este registro.',
+                        icon: 'success',
+                        title: '¡Correcto!',
+                        text: 'Registro guardado correctamente.',
+                        footer: '<a href="/fechas-movilidad">Ver registros aquí</a>',
                     });
                 }
-            },
+            },      
             error => {
                 console.log(<any>error);
-            }
+            }            
         );
     }
 

@@ -20,13 +20,21 @@ import { CreateMachineComponent } from './components/create-machine/create-machi
 import { MachinesComponent } from './components/machines/machines.component';
 import { SecurityComponent } from './components/security/security.component';
 import { MovilidadComponent } from './components/movilidad/movilidad.component';
+import { MostrarMovilidad } from './components/mostrar-movilidad/mostrar-movilidad.component';
 import { CreateMobilityDateComponent } from './components/crear-movilidad/crear-movilidad.component';
+import { CreateMobilityDepartmentComponent } from './components/crear-movilidad-departamento/crear-movilidad-departamento.component';
+import { MostrarMovilidadDepartamentoComponent } from './components/mostrar-movilidad-departamento/mostrar-movilidad-departamento.component';
+import { CrearMovilidadBloqueComponent } from './components/crear-movilidad-bloque/crear-movilidad-bloque.component';
+import { MostrarMovilidadBloqueComponent } from './components/mostrar-movilidad-bloque/mostrar-movilidad-bloque.component';
+import { CreateMobilityFinalComponent } from './components/crear-movilidad-final/crear-movilidad-final.component';
+import { MostrarMovilidadFinalComponent } from './components/mostrar-movilidad-final/mostrar-movilidad-final.component';
 
 import { ExportExcel } from './components/xlsx/xlsx.component';
 import { CreateCustomerComponent } from './components/create-customer/create-customer.component';
 import { CreateProductComponent } from './components/create-product/create-product.component';
 import { CreateOperatorComponent } from './components/create-operator/create-operator.component';
 import { OperatorsComponent } from './components/operators/operators.component';
+
 
 const appRoutes: Routes = [
     {path: '', component: HomeComponent},
@@ -54,7 +62,15 @@ const appRoutes: Routes = [
     {path: 'maquinas/:page', component: MachinesComponent},
     {path: 'seguridad',component: SecurityComponent},
     {path: 'movilidad',component: MovilidadComponent},
+    {path: 'fechas-movilidad', component: MostrarMovilidad},
     {path: 'crear-fecha-movilidad', component: CreateMobilityDateComponent},
+    {path: 'crear-departamento-movilidad', component: CreateMobilityDepartmentComponent},
+    {path: 'mostrar-departamentos-movilidad', component: MostrarMovilidadDepartamentoComponent},
+    {path: 'crear-bloque-movilidad', component: CrearMovilidadBloqueComponent},
+    {path: 'mostrar-bloques-movilidad', component: MostrarMovilidadBloqueComponent},
+    {path: 'crear-movilidad', component: CreateMobilityFinalComponent},
+    {path: 'mostrar-registros-movilidad', component: MostrarMovilidadFinalComponent},
+    
 
     {path: 'exportar-excel', component: ExportExcel},
     {path: 'crear-cliente', component: CreateCustomerComponent},

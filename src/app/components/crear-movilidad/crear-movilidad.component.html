@@ -7,22 +7,22 @@
 
         <p>
             <label class="labels">* Mes</label>
-                <select name="month" #month="ngModel" [(ngModel)]="mobilityDate.month" class="form-control" required>
-                    <option *ngFor="let mon of month" [value]="mon._id">{{mon.month.toUpperCase()}}</option>
+                <select name="mes" #mes="ngModel" [(ngModel)]="mobilityDate.month" class="form-control" required>
+                    <option *ngFor="let mon of month" [value]="mon._id">{{mon.mes.toUpperCase()}}</option>
                 </select>
         </p>
 
         <p>
             <label class="labels">* Semana</label>
-                <select name="weeks" #weeks="ngModel" [(ngModel)]="mobilityDate.week" class="form-control" required>
-                    <option *ngFor="let weeks of week" [value]="weeks._id">{{weeks.week.toUpperCase()}}</option>
+                <select name="semana" #semana="ngModel" [(ngModel)]="mobilityDate.week" class="form-control" required>
+                    <option *ngFor="let weeks of week" [value]="weeks._id">{{weeks.semana.toUpperCase()}}</option>
                 </select>
         </p>
 
         <p>
             <label class="labels">* Dia</label>
-                <select name="days" #days="ngModel" [(ngModel)]="mobilityDate.day" class="form-control" required>
-                    <option *ngFor="let days of day" [value]="days._id">{{days.day.toUpperCase()}}</option>
+                <select name="dia" #dia="ngModel" [(ngModel)]="mobilityDate.day" class="form-control" required>
+                    <option *ngFor="let days of day" [value]="days._id">{{days.dia.toUpperCase()}}</option>
                 </select>
         </p>
 

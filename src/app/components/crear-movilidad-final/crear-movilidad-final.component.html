@@ -1,0 +1,51 @@
+<div class="col-lg-6 col-lg-offset-3">
+    <h1 class="h1-strong">
+        {{title}}
+    </h1>
+
+    <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" class="col-lg-12">
+
+        <p>
+            <label class="labels">* Bloque Movilidad</label>
+                <select name="square" #square="ngModel" [(ngModel)]="mobility.squareMobility" class="form-control" required>
+                    <option *ngFor="let mob of squareMobility" [value]="mob._id">BLOQUE {{mob.square.numberSquare}} DE {{mob.departmentMobility.department.departmentName.toUpperCase()}}, FECHA {{mob.departmentMobility.mobilityDate.day.dia}} {{mob.departmentMobility.mobilityDate.month.mes}} </option>
+                </select>
+        </p>
+
+        <p>
+            <label class="labels">* Maquina</label>
+                <select name="numberMachine" #numberMachine="ngModel" [(ngModel)]="mobility.machine" class="form-control" required>
+                    <option *ngFor="let mob of machine" [value]="mob._id">MAQUINA {{mob.numberMachine}} DE {{mob.square.department.departmentName.toUpperCase()}} </option>
+                </select>
+        </p>
+
+        <p>
+            <label class="labels">* Operador</label>
+                <select name="employee" #employee="ngModel" [(ngModel)]="mobility.operator" class="form-control" required>
+                    <option *ngFor="let mob of operator" [value]="mob._id">{{mob.employee.name.toUpperCase()}} {{mob.employee.surnameP.toUpperCase()}} {{mob.employee.surnameM.toUpperCase()}}</option>
+                </select>
+        </p>
+
+        <p>
+            <label class="labels">* Producto</label>
+                <select name="nameProduct" #nameProduct="ngModel" [(ngModel)]="mobility.product" class="form-control" required>
+                    <option *ngFor="let mob of product" [value]="mob._id">{{mob.nameProduct.toUpperCase()}} DE {{mob.customer.customerName.toUpperCase()}} </option>
+                </select>
+        </p>
+
+        <p>
+            <label class="labels">* Indicador</label>
+            <input type="color" name="indicator" #indicator="ngModel" [(ngModel)]="mobility.indicator" class="form-control" placeholder="Ingresa el indicador del registro" required/>
+            <span *ngIf="!indicator.valid && indicator.touched">
+                El indicador es obligatorio
+            </span>
+        </p>
+
+        <p>
+            <label class="labels">* Observaciones</label>
+            <textarea name="observations" #observations="ngModel" [(ngModel)]="mobility.observations" class="form-control" placeholder="Ingresa las observaciones del registro" required></textarea>
+        </p>
+
+        <input type="submit" value="{{title}}" class="btn btn-success" [disabled]="!registerForm.form.valid"/>
+    </form>
+</div>

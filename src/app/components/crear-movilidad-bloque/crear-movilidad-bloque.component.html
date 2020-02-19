@@ -1,0 +1,24 @@
+<div class="col-lg-4 col-lg-offset-4">
+    <h1 class="h1-strong">
+        {{title}}
+    </h1>
+
+    <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" class="col-lg-12">
+
+        <p>
+            <label class="labels">* Departamento</label>
+                <select name="department" #department="ngModel" [(ngModel)]="squareMobility.departmentMobility" class="form-control" required>
+                    <option *ngFor="let squ of departmentMobility" [value]="squ._id">Departamento {{squ.department.departmentName.toUpperCase()}} - Fecha {{squ.mobilityDate.month.mes.toUpperCase()}} - {{squ.mobilityDate.day.dia}} </option>
+                </select>
+        </p>
+
+        <p>
+            <label class="labels">* Bloque</label>
+                <select name="numberSquare" #numberSquare="ngModel" [(ngModel)]="squareMobility.square" class="form-control" required>
+                    <option *ngFor="let squ of square" [value]="squ._id" >Bloque {{squ.numberSquare}} - Departamento {{squ.department.departmentName.toUpperCase()}} </option>
+                </select>
+        </p>
+
+        <input type="submit" value="{{title}}" class="btn btn-success" [disabled]="!registerForm.form.valid"/>
+    </form>
+</div>

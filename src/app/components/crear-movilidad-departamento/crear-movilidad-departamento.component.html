@@ -1,0 +1,24 @@
+<div class="col-lg-4 col-lg-offset-4">
+    <h1 class="h1-strong">
+        {{title}}
+    </h1>
+
+    <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" class="col-lg-12">
+
+        <p>
+            <label class="labels">* Fecha</label>
+                <select name="month" #month="ngModel" [(ngModel)]="mobilityDepartment.mobilityDate" class="form-control" required>
+                    <option *ngFor="let mob of mobilityDate" [value]="mob._id">{{mob.day.dia.toUpperCase()}} - {{mob.month.mes}} </option>
+                </select>
+        </p>
+
+        <p>
+            <label class="labels">* Departamento</label>
+                <select name="departmentName" #departmentName="ngModel" [(ngModel)]="mobilityDepartment.department" class="form-control" required>
+                    <option *ngFor="let dep of department" [value]="dep._id" [selected]="dep.selected">{{dep.departmentName.toUpperCase()}}</option>
+                </select>
+        </p>
+
+        <input type="submit" value="{{title}}" class="btn btn-success" [disabled]="!registerForm.form.valid"/>
+    </form>
+</div>

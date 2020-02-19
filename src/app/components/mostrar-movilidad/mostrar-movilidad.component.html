@@ -1,0 +1,46 @@
+<div class="col-lg-8 col-lg-offset-2">
+    <h1 class="h1-strong">
+        {{title}}
+    </h1>
+
+    <div class="operator">
+        <div *ngFor="let mobilityDate of mobilityDate" class="item-mobilityDate">
+            <div [routerLink]="['/fechas-movilidad']" (click)="submit()">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="content">
+                            <p>
+                                Mes - <span>{{mobilityDate.month.mes.toUpperCase()}}</span>
+                            </p>
+
+                            <p>
+                                Semana - <span>{{mobilityDate.week.semana}}</span>
+                            </p>
+
+                            <p>
+                                Día - <span>{{mobilityDate.day.dia}}</span>
+                            </p>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="buttons-paginates">
+                            <div class="pull-right">
+                                <a [routerLink]="['/crear-departamento-movilidad']" class="btn btn-success">
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                    {{button_agregar}}
+                                </a>
+
+                                <a [routerLink]="['/mostrar-departamentos-movilidad']" class="btn btn-info">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                    {{button_consultar}}
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

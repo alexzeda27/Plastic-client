@@ -24,4 +24,18 @@ export class MobilityDateService
 
         return this._http.post(this.url + 'crear-fechaMovilidad', params, {headers:headers});
     }
+
+    getMobilityDate(): Observable<any>
+    {
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+        return this._http.get(this.url + 'consultar-fechasMovilidad', {headers:headers});
+    }
+
+    getMobilityDateId(id): Observable<any>
+    {
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+        return this._http.get(this.url + 'consultar-fechaMovilidad/' + id, {headers:headers});
+    }
 }

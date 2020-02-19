@@ -25,7 +25,14 @@ import { CreateMachineComponent } from './components/create-machine/create-machi
 import { MachinesComponent } from './components/machines/machines.component';
 import { SecurityComponent } from './components/security/security.component';
 import { MovilidadComponent } from './components/movilidad/movilidad.component';
+import { MostrarMovilidad } from './components/mostrar-movilidad/mostrar-movilidad.component';
 import { CreateMobilityDateComponent } from './components/crear-movilidad/crear-movilidad.component';
+import { CreateMobilityDepartmentComponent } from './components/crear-movilidad-departamento/crear-movilidad-departamento.component';
+import { MostrarMovilidadDepartamentoComponent } from './components/mostrar-movilidad-departamento/mostrar-movilidad-departamento.component';
+import { CrearMovilidadBloqueComponent } from './components/crear-movilidad-bloque/crear-movilidad-bloque.component';
+import { MostrarMovilidadBloqueComponent } from './components/mostrar-movilidad-bloque/mostrar-movilidad-bloque.component';
+import { CreateMobilityFinalComponent } from './components/crear-movilidad-final/crear-movilidad-final.component';
+import { MostrarMovilidadFinalComponent } from './components/mostrar-movilidad-final/mostrar-movilidad-final.component';
 
 import { ExportExcel } from './components/xlsx/xlsx.component';
 import { CreateCustomerComponent } from './components/create-customer/create-customer.component';
@@ -53,8 +60,16 @@ import { OperatorsComponent } from './components/operators/operators.component';
     CreateMachineComponent,
     MachinesComponent,
     SecurityComponent,
+
     MovilidadComponent,
+    MostrarMovilidad,
     CreateMobilityDateComponent,
+    CreateMobilityDepartmentComponent,
+    MostrarMovilidadDepartamentoComponent,
+    CrearMovilidadBloqueComponent,
+    MostrarMovilidadBloqueComponent,
+    CreateMobilityFinalComponent,
+    MostrarMovilidadFinalComponent,
 
     ExportExcel,
     CreateCustomerComponent,

@@ -28,7 +28,7 @@ export class ProfileComponent implements OnInit
         private _route: ActivatedRoute,
         private _router: Router,
         private _employeeService: EmployeeService
-    )
+    )   
     {
         this.title = 'Perfil';
         this.button_update = "Actualizar Empleado";
